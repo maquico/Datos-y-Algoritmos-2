@@ -20,9 +20,16 @@ string diccionario2D[9] = { "dieci","veinti", "treinta", "cuarenta", "cincuenta"
 string diccionario3D[9] = { "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
 string diccionarioEspecial[12] = { "cero", "diez", "once", "doce", "trece", "catorce", "quince", "veinte", "cien", "mil", "millon"};
 
-//void Mensaje(string entrada) {
-//
-//}
+void Alerta(string iniMensaje = "", string finMensaje = "", int variable = NULL) {
+	cout << "\n" << iniMensaje;
+	if (variable != NULL)
+	{
+		cout << variable << finMensaje;
+	}
+	cout << "\nPresione cualquier tecla para continuar\n";
+	_getch();
+}
+
 bool ValidarNum(string entrada) {
 
 	bool numValido = true;
@@ -63,8 +70,6 @@ void Menu() {
 					cout << "Introduzca su número: ";
 					cin >> num;
 				}
-				
-
 			}
 		}
 		else {
