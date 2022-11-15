@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NumerosEnLetras", "NumerosE
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Floreros", "Floreros\Floreros.vcxproj", "{F780EB11-DADE-4F13-AC04-B3977A42FCCE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CadenaMasLarga", "CadenaMasLarga\CadenaMasLarga.vcxproj", "{46B81218-4967-4032-9406-CB708D4F7E65}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertirNumerosEnLetras", "ConvertirNumerosEnLetras\ConvertirNumerosEnLetras.vcxproj", "{16CCF012-8DEB-4AE4-AB31-D50A851F8422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +45,22 @@ Global
 		{F780EB11-DADE-4F13-AC04-B3977A42FCCE}.Release|x64.Build.0 = Release|x64
 		{F780EB11-DADE-4F13-AC04-B3977A42FCCE}.Release|x86.ActiveCfg = Release|Win32
 		{F780EB11-DADE-4F13-AC04-B3977A42FCCE}.Release|x86.Build.0 = Release|Win32
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Debug|x64.ActiveCfg = Debug|x64
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Debug|x64.Build.0 = Debug|x64
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Debug|x86.ActiveCfg = Debug|Win32
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Debug|x86.Build.0 = Debug|Win32
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Release|x64.ActiveCfg = Release|x64
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Release|x64.Build.0 = Release|x64
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Release|x86.ActiveCfg = Release|Win32
+		{46B81218-4967-4032-9406-CB708D4F7E65}.Release|x86.Build.0 = Release|Win32
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Debug|x64.ActiveCfg = Debug|x64
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Debug|x64.Build.0 = Debug|x64
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Debug|x86.ActiveCfg = Debug|Win32
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Debug|x86.Build.0 = Debug|Win32
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Release|x64.ActiveCfg = Release|x64
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Release|x64.Build.0 = Release|x64
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Release|x86.ActiveCfg = Release|Win32
+		{16CCF012-8DEB-4AE4-AB31-D50A851F8422}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
