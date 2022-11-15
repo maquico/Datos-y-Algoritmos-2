@@ -95,11 +95,9 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 		int unidad = numerosTrabajar % 10, decena = numerosTrabajar % 100, centena = numerosTrabajar / 100;
 		int cantDigitosActual = cantDigitos - ContarDigitos(numerosTrabajar);
 
-
-		/*cout << numerosTrabajar << endl << parteRestante << endl << unidad << endl << decena;
-		_getch();*/
-
-		if (numerosTrabajar / 100 >= 1) palabra += diccionario3D[(centena - 1)] + " ";
+		if (numerosTrabajar / 100 >= 1) {
+			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8]: palabra += diccionario3D[(centena - 1)] + " ";
+		}
 
 		if (decena >= 10)
 		{
@@ -146,7 +144,6 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 				palabra += diccionario2D[(decena / 10) - 1];
 				if (unidad > 0) palabra += " y " + diccionario1D[unidad - 1] + " ";
 				break;
-				break;
 			}
 		}
 		else  if (unidad > 0)
@@ -154,7 +151,6 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 			palabra += diccionario1D[unidad - 1] + " ";
 
 		}
-
 
 		//Agregar mil o millon
 		if (cantDigitosActual == 3)palabra += diccionarioEspecial[9] + " ";
@@ -166,7 +162,6 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 		{
 			Convertir3D(parteRestante, cantDigitosActual, palabra);
 		}
-
 	}
 	else
 	{
@@ -175,10 +170,9 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 }
 
 int main() {
-
 	string palabra = "";
 	
-		double numf = 1.99;
+		double numf = 100;
 		int numi = numf;
 		int cantDigit = ContarDigitos(numi);
 		Convertir3D(numi,cantDigit, palabra);
@@ -186,7 +180,5 @@ int main() {
 		numi = decimal;
 		cout << palabra << " con " << numi << " centavos.\n\n";
 	
-	
-
 	return 0;
 };
