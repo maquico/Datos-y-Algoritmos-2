@@ -13,12 +13,12 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <conio.h>
 #include <math.h>
 						
-using namespace std;
+using namespace std; //0
 
 string diccionario1D[10] = { "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve" };
 string diccionario2D[9] = { "dieci","veinti", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa" };
 string diccionario3D[9] = { "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
-string diccionarioEspecial[12] = { "cero", "diez", "once", "doce", "trece", "catorce", "quince", "veinte", "cien", "mil", "millon"};
+string diccionarioEspecial[12] = { "cero", "diez", "once", "doce", "trece", "catorce", "quince", "veinte", "cien", "mil", "millon", "un"};
 
 void Alerta(string iniMensaje = "", string finMensaje = "", int variable = NULL) {
 	cout << "\n" << iniMensaje;
@@ -90,23 +90,22 @@ int ContarDigitos(int n) {
 
 void Convertir3D(int n, int cantDigitos, string &palabra) {
 	
-	//521,765
 	if (cantDigitos> 0)
 	{
 		int potencia = 0;
 		(cantDigitos % 3 == 0) ? potencia = pow(10, cantDigitos - 3) : potencia = pow(10, cantDigitos - (cantDigitos % 3));
 		int numerosTrabajar = n / potencia;
-		int parteRestante = n % potencia;
-		int unidad = numerosTrabajar % 10, decena = numerosTrabajar % 100, centena = numerosTrabajar / 100;
+		int parteRestante = n % potencia;//123
+		int unidad = numerosTrabajar % 10, decena = (numerosTrabajar % 100)/10, centena = numerosTrabajar / 100;
 		int cantDigitosActual = cantDigitos - ContarDigitos(numerosTrabajar);
 
 		if (numerosTrabajar / 100 >= 1) {
 			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8]: palabra += diccionario3D[(centena - 1)] + " ";
 		}
 
-		if (decena >= 10)
+		if (decena >= 1)
 		{
-			switch (decena / 10)
+			switch (decena)
 			{
 			case 0:
 				break;
@@ -153,8 +152,7 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 		}
 		else  if (unidad > 0)
 		{
-			palabra += diccionario1D[unidad - 1] + " ";
-
+			(unidad==1 && cantDigitosActual==6 && decena ==0 && centena==0) ? palabra += diccionarioEspecial[11] + " " : palabra += diccionario1D[unidad - 1] + " ";
 		}
 
 		//Agregar mil o millon
@@ -177,7 +175,7 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 int main() {
 	string palabra = "";
 	
-		double numf = 100;
+		double numf = 1000000;
 		int numi = numf;
 		int cantDigit = ContarDigitos(numi);
 		Convertir3D(numi,cantDigit, palabra);
