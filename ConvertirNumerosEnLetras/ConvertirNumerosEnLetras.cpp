@@ -14,6 +14,7 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <math.h>
 						
 using namespace std; 
+
 //Arrays Globales
 string diccionario1D[10] = { "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve" };
 string diccionario2D[9] = { "dieci","veinti", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa" };
@@ -30,7 +31,7 @@ void MenuConversion();
 
 //Main
 int main() {
-
+	
 	MenuPrincipal();
 	return 0;
 };
@@ -78,7 +79,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 		int digitosRestantes = cantDigitos - ContarDigitos(numTrabajar);
 
 		//SE TRADUCE LA CENTENA
-		if (numTrabajar / 100 >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario especial ciento, doscientos, etc.
+		if (numTrabajar / 100 >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario de 3 dig ciento, doscientos, etc.
 			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] : palabra += diccionario3D[(centena - 1)] + " ";
 
 		//SE TRADUCE LA DECENA CON SU UNIDAD
@@ -127,11 +128,9 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 		}
 		//SE TRADUCE UNA UNIDAD SOLA
 		else if (unidad > 0)
-			// si el numero tiene un 1 en la unidad y 6 digitos restantes escribir 'un millon' en lugar de 'uno millon'.
-			//Para cualquier otro caso escribir dos, tres, cuatro, etc.
-			if (unidad == 1 && (digitosRestantes == 3 || digitosRestantes == 6))  palabra += diccionarioEspecial[11] + " ";
+			if (unidad == 1 && (digitosRestantes == 3 || digitosRestantes == 6))  palabra += diccionarioEspecial[11] + " "; //Para escribir 'un' en lugar de uno
 			else if (unidad == 1 && digitosRestantes == 3 && centena == 0) ; // para que si es 1000 no escriba uno delante de mil
-			else palabra += diccionario1D[unidad - 1] + " ";
+			else palabra += diccionario1D[unidad - 1] + " "; // cualquier otro caso de unidad sin decena.
 
 		//SE AGREGA MIL O MILLON
 		if (digitosRestantes == 3)palabra += diccionarioEspecial[9] + " "; //Sobran 3 digitos, se agrega 'mil'
@@ -139,10 +138,10 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 			(decena > 1 || unidad > 1 || centena > 1) ? palabra += diccionarioEspecial[10] + "es " : palabra += diccionarioEspecial[10] + " ";
 		}
 
-		if (numRestante > 0) NumEnPalabras(numRestante, digitosRestantes, palabra);
+		if (numRestante > 0) NumEnPalabras(numRestante, digitosRestantes, palabra); //Si el numero restante es mayor que 0 se llama a la misma funcion
 	}
 	else
-	{   //Caso especial, escribir 'cero'
+	{   //Caso especial del 0 solo, escribir 'cero'
 		palabra = diccionarioEspecial[0];
 	}
 }
@@ -159,7 +158,7 @@ void MenuConversion() {
 		if (ValidarNum(sNum))
 		{
 			double dNum = stod(sNum);
-			int iNum = dNum, cantDigit = ContarDigitos(iNum);
+			int iNum = stoi(sNum), cantDigit = ContarDigitos(iNum);
 			NumEnPalabras(iNum, cantDigit, numEnPalabras);
 			float decimales = (dNum - iNum) * 100;
 			iNum = decimales;
