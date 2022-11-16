@@ -179,6 +179,12 @@ void MenuConversion() {
 			Alerta("No introduzca letras ni simbolos que no sean el punto decimal");
 			SetConsoleTextAttribute(hconsole, 7);
 		}
+
+		system("cls");
+		cout << "Presione ""ESC"" para salir.\n\n";
+		cout << "Presione CUALQUIER LETRA para continuar.\n\n";
+		unsigned int letraSalir = _getch();
+		if (letraSalir == 27) salirNum = true;
 	}
 }
 
