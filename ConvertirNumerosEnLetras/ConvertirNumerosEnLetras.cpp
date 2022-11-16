@@ -12,6 +12,7 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <string>
 #include <conio.h>
 #include <math.h>
+#include <windows.h>
 						
 using namespace std; 
 
@@ -20,6 +21,10 @@ string diccionario1D[10] = { "uno", "dos", "tres", "cuatro", "cinco", "seis", "s
 string diccionario2D[9] = { "dieci","veinti", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa" };
 string diccionario3D[9] = { "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
 string diccionarioEspecial[12] = { "cero", "diez", "once", "doce", "trece", "catorce", "quince", "veinte", "cien", "mil", "millon", "un"};
+
+
+//Variables Globales
+HANDLE hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 //Prototipos
 void Alerta(string, string);
@@ -128,7 +133,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 		}
 		//SE TRADUCE UNA UNIDAD SOLA
 		else if (unidad > 0)
-			if (unidad == 1 && (digitosRestantes == 3 || digitosRestantes == 6))  palabra += diccionarioEspecial[11] + " "; //Para escribir 'un' en lugar de uno
+			if (unidad == 1 && (digitosRestantes == 6))  palabra += diccionarioEspecial[11] + " "; //Para escribir 'un' en lugar de uno
 			else if (unidad == 1 && digitosRestantes == 3 && centena == 0) ; // para que si es 1000 no escriba uno delante de mil
 			else palabra += diccionario1D[unidad - 1] + " "; // cualquier otro caso de unidad sin decena.
 
@@ -153,7 +158,7 @@ void MenuConversion() {
 	{
 		string numEnPalabras = "";
 		system("cls");
-		cout << "Introduzca su número: ";
+		cout << "Introduzca su numero: ";
 		cin >> sNum;
 		if (ValidarNum(sNum))
 		{
@@ -162,12 +167,17 @@ void MenuConversion() {
 			NumEnPalabras(iNum, cantDigit, numEnPalabras);
 			float decimales = (dNum - iNum) * 100;
 			iNum = decimales;
+			cout << "\n\nNumero en palabras: ";
+			SetConsoleTextAttribute(hconsole, 6);
 			cout << numEnPalabras << "con " << iNum << " centavos.\n\n";
+			SetConsoleTextAttribute(hconsole, 7);
 			_getch();
 		}
 		else
 		{
+			SetConsoleTextAttribute(hconsole, 4);
 			Alerta("No introduzca letras ni simbolos que no sean el punto decimal");
+			SetConsoleTextAttribute(hconsole, 7);
 		}
 	}
 }
@@ -181,7 +191,8 @@ void MenuPrincipal() {
 		system("cls");
 		cout << "---Bienvenido, este es el conversor de números a palabras---\n\n";
 		cout << "[1] Convertir Numero\n";
-		cout << "[0] Cerrar Programa\n";
+		cout << "[0] Cerrar Programa\n\n";
+		cout << "Opcion a Elegir: ";
 		cin >> opcion;
 
 		if (ValidarNum(opcion)) {
@@ -199,7 +210,9 @@ void MenuPrincipal() {
 			}
 		}
 		else {
+			SetConsoleTextAttribute(hconsole, 4);
 			Alerta("No introduzca letras ni simbolos que no sean el punto decimal");
+			SetConsoleTextAttribute(hconsole, 7);
 		}
 	}	
 }
