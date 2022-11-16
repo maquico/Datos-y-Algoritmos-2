@@ -13,19 +13,31 @@ AUTORES: ANGEL MORENO ID:1104666
 #include <conio.h>
 #include <math.h>
 						
-using namespace std; //0
-
+using namespace std; 
+//Arrays Globales
 string diccionario1D[10] = { "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve" };
 string diccionario2D[9] = { "dieci","veinti", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa" };
 string diccionario3D[9] = { "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
 string diccionarioEspecial[12] = { "cero", "diez", "once", "doce", "trece", "catorce", "quince", "veinte", "cien", "mil", "millon", "un"};
 
-void Alerta(string iniMensaje = "", string finMensaje = "", int variable = NULL) {
+//Prototipos
+void Alerta(string, string);
+bool ValidarNum(string);
+void MenuPrincipal();
+int ContarDigitos(int);
+void NumEnPalabras(int, int, string&);
+void MenuConversion();
+
+//Main
+int main() {
+
+	MenuPrincipal();
+	return 0;
+};
+
+//Funciones
+void Alerta(string iniMensaje = "", string finMensaje = "") {
 	cout << "\n" << iniMensaje;
-	if (variable != NULL)
-	{
-		cout << variable << finMensaje;
-	}
 	cout << "\nPresione cualquier tecla para continuar\n";
 	_getch();
 }
@@ -45,39 +57,6 @@ bool ValidarNum(string entrada) {
 	return numValido;
 }
 
-void Menu() {
-	string opcion = "";
-	bool salir = false;
-	
-	while (!salir)
-	{
-		cout << "---Bienvenido, este es el conversor de números a palabras---\n\n";
-		cout << "[1] Convertir Numero\n";
-		cout << "[0] Cerrar Programa\n";
-		cin >> opcion;
-
-		if (ValidarNum(opcion)) {
-			switch (stoi(opcion))
-			{
-			case 0:
-				salir = true;
-				break;
-			case 1:
-				string num = "", numEnPalabras;
-				bool salirNum=false;
-				while (!salirNum)
-				{
-					cout << "Introduzca su número: ";
-					cin >> num;
-				}
-			}
-		}
-		else {
-			//mensaje de error
-		}
-	}	
-}
-
 int ContarDigitos(int n) {
 	int cont = 0;
 	while (n > 0)
@@ -87,30 +66,27 @@ int ContarDigitos(int n) {
 	}
 	return cont;
 }
+void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 
-void Convertir3D(int n, int cantDigitos, string &palabra) {
-	
-	if (cantDigitos> 0)
+	if (cantDigitos > 0)
 	{
 		int potencia = 0;
 		(cantDigitos % 3 == 0) ? potencia = pow(10, cantDigitos - 3) : potencia = pow(10, cantDigitos - (cantDigitos % 3));
-		int numerosTrabajar = n / potencia;
-		int parteRestante = n % potencia;//123
-		int unidad = numerosTrabajar % 10, decena = (numerosTrabajar % 100)/10, centena = numerosTrabajar / 100;
-		int cantDigitosActual = cantDigitos - ContarDigitos(numerosTrabajar);
+		int numTrabajar = n / potencia;
+		int numRestante = n % potencia;
+		int unidad = numTrabajar % 10, decena = (numTrabajar % 100) / 10, centena = numTrabajar / 100;
+		int digitosRestantes = cantDigitos - ContarDigitos(numTrabajar);
 
-		if (numerosTrabajar / 100 >= 1) {
-			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8]: palabra += diccionario3D[(centena - 1)] + " ";
-		}
+		//SE TRADUCE LA CENTENA
+		if (numTrabajar / 100 >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario especial ciento, doscientos, etc.
+			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] : palabra += diccionario3D[(centena - 1)] + " ";
 
-		if (decena >= 1)
-		{
+		//SE TRADUCE LA DECENA CON SU UNIDAD
+		if (decena >= 1) {
 			switch (decena)
 			{
-			case 0:
-				break;
 			case 1:
-				switch (unidad)
+				switch (unidad) //Un switch para los casos del 11, 12, 13, 14 y 15
 				{
 				case 0:
 					palabra += diccionarioEspecial[1] + " ";
@@ -128,60 +104,103 @@ void Convertir3D(int n, int cantDigitos, string &palabra) {
 					palabra += diccionarioEspecial[5] + " ";
 					break;
 				case 5:
-					palabra += diccionarioEspecial[6] + +" ";
+					palabra += diccionarioEspecial[6] + " ";
 					break;
-				default:
+				default: //Este default escribe los numeros 16, 17, 18 y 19
 					palabra += diccionario2D[0] + diccionario1D[unidad - 1] + " ";
 					break;
 				}
 				break;
 			case 2:
-				if (unidad == 0) {
-					palabra += diccionarioEspecial[7] + " ";
-				}
-				else
-				{
-					palabra += diccionario2D[1] + diccionario1D[unidad - 1] + " ";
-				}
+				// si es 20 escribe veinte, sino escribe veinti y agrega el numero de la unidad
+				if (unidad == 0) palabra += diccionarioEspecial[7] + " ";
+				else if (unidad==1 && (digitosRestantes==3 || digitosRestantes == 6)) palabra = palabra + diccionario2D[1] + diccionarioEspecial[11] + " ";
+				else palabra += diccionario2D[1] + diccionario1D[unidad - 1] + " ";
 				break;
 			default:
-				palabra += diccionario2D[(decena / 10) - 1];
-				if (unidad > 0) palabra += " y " + diccionario1D[unidad - 1] + " ";
+				// para numeros de 30 hasta 99.
+				palabra += diccionario2D[decena - 1] + " ";
+				if (unidad == 1 && (digitosRestantes == 3 || digitosRestantes == 6)) palabra += "y " + diccionarioEspecial[11] + " ";
+				if (unidad > 1 ) palabra += "y " + diccionario1D[unidad - 1] + " ";
 				break;
 			}
 		}
-		else  if (unidad > 0)
-		{
-			(unidad==1 && cantDigitosActual==6 && decena ==0 && centena==0) ? palabra += diccionarioEspecial[11] + " " : palabra += diccionario1D[unidad - 1] + " ";
+		//SE TRADUCE UNA UNIDAD SOLA
+		else if (unidad > 0)
+			// si el numero tiene un 1 en la unidad y 6 digitos restantes escribir 'un millon' en lugar de 'uno millon'.
+			//Para cualquier otro caso escribir dos, tres, cuatro, etc.
+			if (unidad == 1 && (digitosRestantes == 3 || digitosRestantes == 6))  palabra += diccionarioEspecial[11] + " ";
+			else if (unidad == 1 && digitosRestantes == 3 && centena == 0) ; // para que si es 1000 no escriba uno delante de mil
+			else palabra += diccionario1D[unidad - 1] + " ";
+
+		//SE AGREGA MIL O MILLON
+		if (digitosRestantes == 3)palabra += diccionarioEspecial[9] + " "; //Sobran 3 digitos, se agrega 'mil'
+		else if (digitosRestantes == 6) { //Sobran 6 digitos, se agrega 'millones' si centenas o decenas o unidades son mayores que 1, de lo contrario se agrega 'millon'
+			(decena > 1 || unidad > 1 || centena > 1) ? palabra += diccionarioEspecial[10] + "es " : palabra += diccionarioEspecial[10] + " ";
 		}
 
-		//Agregar mil o millon
-		if (cantDigitosActual == 3)palabra += diccionarioEspecial[9] + " ";
-		else if (cantDigitosActual == 6) {
-			(decena > 1 || unidad > 1 || centena > 1) ? palabra += diccionarioEspecial[10] + "es " : palabra += diccionarioEspecial[10];
-		}
-
-		if (parteRestante > 0)
-		{
-			Convertir3D(parteRestante, cantDigitosActual, palabra);
-		}
+		if (numRestante > 0) NumEnPalabras(numRestante, digitosRestantes, palabra);
 	}
 	else
-	{
+	{   //Caso especial, escribir 'cero'
 		palabra = diccionarioEspecial[0];
 	}
 }
 
-int main() {
-	string palabra = "";
+void MenuConversion() {
+	string sNum = "";
+	bool salirNum = false;
+	while (!salirNum)
+	{
+		string numEnPalabras = "";
+		system("cls");
+		cout << "Introduzca su número: ";
+		cin >> sNum;
+		if (ValidarNum(sNum))
+		{
+			double dNum = stod(sNum);
+			int iNum = dNum, cantDigit = ContarDigitos(iNum);
+			NumEnPalabras(iNum, cantDigit, numEnPalabras);
+			float decimales = (dNum - iNum) * 100;
+			iNum = decimales;
+			cout << numEnPalabras << "con " << iNum << " centavos.\n\n";
+			_getch();
+		}
+		else
+		{
+			Alerta("No introduzca letras ni simbolos que no sean el punto decimal");
+		}
+	}
+}
+
+void MenuPrincipal() {
+	string opcion = "";
+	bool salir = false;
 	
-		double numf = 1000000;
-		int numi = numf;
-		int cantDigit = ContarDigitos(numi);
-		Convertir3D(numi,cantDigit, palabra);
-		float decimal = (numf - numi) * 100;
-		numi = decimal;
-		cout << palabra << " con " << numi << " centavos.\n\n";
-	
-	return 0;
-};
+	while (!salir)
+	{
+		system("cls");
+		cout << "---Bienvenido, este es el conversor de números a palabras---\n\n";
+		cout << "[1] Convertir Numero\n";
+		cout << "[0] Cerrar Programa\n";
+		cin >> opcion;
+
+		if (ValidarNum(opcion)) {
+			switch (stoi(opcion))
+			{
+			case 0:
+				salir = true;
+				break;
+			case 1:
+				MenuConversion();
+				break;
+			default:
+				Alerta("La entrada no forma parte del menu de opciones");
+				break;
+			}
+		}
+		else {
+			Alerta("No introduzca letras ni simbolos que no sean el punto decimal");
+		}
+	}	
+}
