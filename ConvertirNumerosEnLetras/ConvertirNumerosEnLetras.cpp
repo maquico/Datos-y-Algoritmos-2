@@ -102,7 +102,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 
 		//SE TRADUCE LA CENTENA
 		if (centena >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario de 3 dig ciento, doscientos, etc.
-			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] : palabra += diccionario3D[(centena - 1)] + " ";
+			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] +" " : palabra += diccionario3D[(centena - 1)] + " ";
 
 		//SE TRADUCE LA DECENA CON SU UNIDAD
 		if (decena >= 1) {
