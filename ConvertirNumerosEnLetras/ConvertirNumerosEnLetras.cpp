@@ -27,13 +27,14 @@ string diccionarioEspecial[12] = { "cero", "diez", "once", "doce", "trece", "cat
 HANDLE hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 //Prototipos
-void Alerta(string, string);
+void Alerta(string, bool,int);
 bool ValidarNum(string);
 void MenuPrincipal();
 int ContarDigitos(int);
 void NumEnPalabras(int, int, string&);
 void MenuConversion();
-
+bool ValidarRango(float, float, float);
+float Redondear(float, int);
 //Main
 int main() {
 	
@@ -42,10 +43,20 @@ int main() {
 };
 
 //Funciones
-void Alerta(string iniMensaje = "", string finMensaje = "") {
-	cout << "\n" << iniMensaje;
-	cout << "\nPresione cualquier tecla para continuar\n";
-	_getch();
+void Alerta(string mensaje = "", bool color = false, int nColor = 7) {
+	if (color)
+	{
+		SetConsoleTextAttribute(hconsole, nColor);
+		cout << "\n" << mensaje;
+		cout << "\nPresione cualquier tecla para continuar\n";
+		_getch();
+		SetConsoleTextAttribute(hconsole, 7);
+	}
+	else {
+		cout << "\n" << mensaje;
+		cout << "\nPresione cualquier tecla para continuar\n";
+		_getch();
+	}
 }
 
 bool ValidarNum(string entrada) {
@@ -61,6 +72,18 @@ bool ValidarNum(string entrada) {
 		}
 	}
 	return numValido;
+}
+
+bool ValidarRango(float cotaInf, float cotaSup, float n) {
+	bool dentroRango = false;
+	(n >= cotaInf && n <= cotaSup) ? dentroRango= true : dentroRango=false;
+	return dentroRango;
+}
+
+float Redondear(float fNum, int precision) {
+	int a = (int)(fNum * pow(10, precision) + 0.5);
+	float b = a / 100.0;
+	return b;
 }
 
 int ContarDigitos(int n) {
@@ -162,23 +185,23 @@ void MenuConversion() {
 		cin >> sNum;
 		if (ValidarNum(sNum))
 		{
-			double dNum = stod(sNum);
-			int iNum = stoi(sNum), cantDigit = ContarDigitos(iNum);
-			NumEnPalabras(iNum, cantDigit, numEnPalabras);
-			float decimales = (dNum - iNum) * 100;
-			iNum = decimales;
-			cout << "\n\nNumero en palabras: ";
-			SetConsoleTextAttribute(hconsole, 6);
-			cout << numEnPalabras << "con " << iNum << " centavos.\n\n";
-			SetConsoleTextAttribute(hconsole, 7);
-			_getch();
+			float fNum = stof(sNum);
+			fNum = Redondear(fNum, 2);
+			if (ValidarRango(0.00, 999999999.99, fNum))
+			{
+				int iNum = stoi(sNum), cantDigit = ContarDigitos(iNum);
+				NumEnPalabras(iNum, cantDigit, numEnPalabras);
+				float decimales = (fNum  - iNum) * 100;
+				iNum = decimales;
+				cout << "\n\nNumero en palabras: ";
+				SetConsoleTextAttribute(hconsole, 6);
+				cout << numEnPalabras << "con " << iNum << " centavos.\n\n";
+				SetConsoleTextAttribute(hconsole, 7);
+				_getch();
+			}
+			else Alerta("No introduzca numeros mayores que 999,999,999.99", true, 4);
 		}
-		else
-		{
-			SetConsoleTextAttribute(hconsole, 4);
-			Alerta("No introduzca letras ni simbolos que no sean el punto decimal");
-			SetConsoleTextAttribute(hconsole, 7);
-		}
+		else Alerta("No introduzca letras ni simbolos que no sean el punto decimal", true, 4);
 
 		system("cls");
 		cout << "Presione ""ESC"" para salir.\n\n";
