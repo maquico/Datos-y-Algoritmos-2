@@ -101,7 +101,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 		int digitosRestantes = cantDigitos - ContarDigitos(numTrabajar);
 
 		//SE TRADUCE LA CENTENA
-		if (numTrabajar / 100 >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario de 3 dig ciento, doscientos, etc.
+		if (centena >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario de 3 dig ciento, doscientos, etc.
 			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] : palabra += diccionario3D[(centena - 1)] + " ";
 
 		//SE TRADUCE LA DECENA CON SU UNIDAD
@@ -136,6 +136,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 				break;
 			case 2:
 				// si es 20 escribe veinte, sino escribe veinti y agrega el numero de la unidad
+				// si sobran 3 o 6 digitos y la unidad es 1 se escribe veintiun
 				if (unidad == 0) palabra += diccionarioEspecial[7] + " ";
 				else if (unidad==1 && (digitosRestantes==3 || digitosRestantes == 6)) palabra = palabra + diccionario2D[1] + diccionarioEspecial[11] + " ";
 				else palabra += diccionario2D[1] + diccionario1D[unidad - 1] + " ";
