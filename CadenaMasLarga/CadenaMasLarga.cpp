@@ -4,29 +4,20 @@
 
 using namespace std;
 
-string BuscarCuatro(int n) {
-	string cadena = to_string(n) + ", ";
-	while(n!=4)
-	{
-		if (n % 2 == 0) n = n / 2;
-		else if (n % 2 != 0) n = (n * 3) + 1;
-		cadena = cadena + to_string(n) + ", ";
-	}
-	return cadena;
-}
-
-string BuscarCadenaMasLarga(int cotaInf, int cotaSup) {
-	string cadenaMasLarga = "";
-	for (int i = cotaInf; i < cotaSup+1; i++)
-	{
-		string cadenaActual = BuscarCuatro(i);
-		if(cadenaActual.length() > cadenaMasLarga.length()) cadenaMasLarga = cadenaActual;
-	}
-	return cadenaMasLarga;
+int CadenaMasLarga(int n, int pasos) {
+	if (n == 4) return pasos;
+	else if (n % 2 == 0) n = n / 2;
+	else  n = (n * 3) + 1;
+	return CadenaMasLarga(n, pasos + 1);
 }
 
 int main() {
+	int mayorCadena = 0;
+	for (int i = 1; i < 100; i++)
+	{
+		if (CadenaMasLarga(i, 0) > mayorCadena) mayorCadena = i;
+	}
+	cout << "El numero con la mayor cadena es: " << mayorCadena;
 
-	cout << BuscarCadenaMasLarga(1, 99);
 	return 0;
 }
