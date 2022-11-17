@@ -80,10 +80,9 @@ bool ValidarRango(float cotaInf, float cotaSup, float n) {
 	return dentroRango;
 }
 
-float Redondear(float fNum, int precision) {
-	int a = (int)(fNum * pow(10, precision) + 0.5);
-	float b = a / 100.0;
-	return b;
+int Redondear(int fNum) {
+	if ((fNum % 10) >= 5) return ((fNum / 10) + 1);
+	else return (fNum / 10);
 }
 
 int ContarDigitos(int n) {
@@ -186,13 +185,12 @@ void MenuConversion() {
 		if (ValidarNum(sNum))
 		{
 			float fNum = stof(sNum);
-			fNum = Redondear(fNum, 2);
 			if (ValidarRango(0.00, 999999999.99, fNum))
 			{
 				int iNum = stoi(sNum), cantDigit = ContarDigitos(iNum);
 				NumEnPalabras(iNum, cantDigit, numEnPalabras);
-				float decimales = (fNum  - iNum) * 100;
-				iNum = decimales;
+				float decimales = (fNum  - iNum) * 1000;
+				iNum = Redondear(decimales);
 				cout << "\n\nNumero en palabras: ";
 				SetConsoleTextAttribute(hconsole, 6);
 				cout << numEnPalabras << "con " << iNum << " centavos.\n\n";
