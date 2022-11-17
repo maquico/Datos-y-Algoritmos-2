@@ -6,7 +6,7 @@ AUTORES: ANGEL MORENO ID:1104666
 *        ALLEN SILVERIO ID:1104220
 *        CRISTIAN JIMÉNEZ ID:1106166
 *        WILLIAM FERREIRA ID:1104228
-* FECHA: 13/11/2022
+* FECHA: 17/11/2022
 */
 #include <iostream> 
 #include <string>
@@ -34,7 +34,7 @@ int ContarDigitos(int);
 void NumEnPalabras(int, int, string&);
 void MenuConversion();
 bool ValidarRango(float, float, float);
-float Redondear(float, int);
+
 //Main
 int main() {
 	
@@ -78,11 +78,6 @@ bool ValidarRango(float cotaInf, float cotaSup, float n) {
 	bool dentroRango = false;
 	(n >= cotaInf && n <= cotaSup) ? dentroRango= true : dentroRango=false;
 	return dentroRango;
-}
-
-int Redondear(int fNum) {
-	if ((fNum % 10) >= 5) return ((fNum / 10) + 1);
-	else return (fNum / 10);
 }
 
 int ContarDigitos(int n) {
@@ -180,6 +175,7 @@ void MenuConversion() {
 	{
 		string numEnPalabras = "";
 		system("cls");
+		cout << "NOTA: Solo se toman en cuenta 2 decimales\n";
 		cout << "Introduzca su numero: ";
 		cin >> sNum;
 		if (ValidarNum(sNum))
@@ -189,11 +185,11 @@ void MenuConversion() {
 			{
 				int iNum = stoi(sNum), cantDigit = ContarDigitos(iNum);
 				NumEnPalabras(iNum, cantDigit, numEnPalabras);
-				float decimales = (fNum  - iNum) * 1000;
-				iNum = Redondear(decimales);
+				float decimales = (fNum  - iNum) * 100;
+				int centavos = decimales;
 				cout << "\n\nNumero en palabras: ";
 				SetConsoleTextAttribute(hconsole, 6);
-				cout << numEnPalabras << "con " << iNum << " centavos.\n\n";
+				cout << numEnPalabras << "con " << centavos<< " centavos.\n\n";
 				SetConsoleTextAttribute(hconsole, 7);
 				_getch();
 			}
