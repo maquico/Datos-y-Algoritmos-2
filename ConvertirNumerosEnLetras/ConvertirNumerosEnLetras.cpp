@@ -213,7 +213,7 @@ void MenuPrincipal() {
 	while (!salir)
 	{
 		system("cls");
-		cout << "---Bienvenido, este es el conversor de números a palabras---\n\n";
+		cout << "---Bienvenido, este es el conversor de numeros a palabras---\n\n";
 		cout << "[1] Convertir Numero\n";
 		cout << "[0] Cerrar Programa\n\n";
 		cout << "Opcion a Elegir: ";
