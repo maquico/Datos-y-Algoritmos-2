@@ -187,7 +187,7 @@ void MenuConversion() {
 				NumEnPalabras(iNum, cantDigit, numEnPalabras);
 				float decimales = (fNum  - iNum) * 100;
 				int centavos = decimales;
-				cout << "\n\nNumero en palabras: ";
+				cout << "\n\nNumero en palabras: \n";
 				SetConsoleTextAttribute(hconsole, 6);
 				cout << numEnPalabras << "con " << centavos<< " centavos.\n\n";
 				SetConsoleTextAttribute(hconsole, 7);
