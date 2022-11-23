@@ -1,3 +1,13 @@
+/* ESTRUCTURAS DE DATOS Y ALGORITMOS II
+* ENUNCIADO: CADENA MAS LARGA
+* ASUNTO: ESTE PROGRAMA RESUELVE EL PROBLEMA DE LA CADENA MAS LARGA DE ENTRE 1 Y 99
+AUTORES: ANGEL MORENO ID:1104666
+*        GLEIDY ESPINAL ID:1104225
+*        ALLEN SILVERIO ID:1104220
+*        CRISTIAN JIMÉNEZ ID:1106166
+*        WILLIAM FERREIRA ID:1104228
+* FECHA: 24/11/2022
+*/
 #include <iostream>
 #include <conio.h>
 #include <string>
@@ -20,4 +30,5 @@ int main() {
 	cout << "El numero con la mayor cadena es: " << mayorCadena;
 
 	return 0;
+
 }
