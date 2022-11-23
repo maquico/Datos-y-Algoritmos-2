@@ -102,7 +102,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 
 		//SE TRADUCE LA CENTENA
 		if (centena >= 1) //Si la centena es 100 escribe cien, de lo contrario busca en el diccionario de 3 dig ciento, doscientos, etc.
-			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] : palabra += diccionario3D[(centena - 1)] + " ";
+			(centena == 1 && unidad == 0 && decena == 0) ? palabra += diccionarioEspecial[8] +" " : palabra += diccionario3D[(centena - 1)] + " ";
 
 		//SE TRADUCE LA DECENA CON SU UNIDAD
 		if (decena >= 1) {
@@ -158,7 +158,7 @@ void NumEnPalabras(int n, int cantDigitos, string& palabra) {
 		//SE AGREGA MIL O MILLON
 		if (digitosRestantes == 3)palabra += diccionarioEspecial[9] + " "; //Sobran 3 digitos, se agrega 'mil'
 		else if (digitosRestantes == 6) { //Sobran 6 digitos, se agrega 'millones' si centenas o decenas o unidades son mayores que 1, de lo contrario se agrega 'millon'
-			(decena > 1 || unidad > 1 || centena > 1) ? palabra += diccionarioEspecial[10] + "es " : palabra += diccionarioEspecial[10] + " ";
+			( decena == 0 && unidad == 1 && centena ==0) ? palabra += diccionarioEspecial[10] + " " : palabra += diccionarioEspecial[10] + "es ";
 		}
 
 		if (numRestante > 0) NumEnPalabras(numRestante, digitosRestantes, palabra); //Si el numero restante es mayor que 0 se llama a la misma funcion
@@ -213,7 +213,7 @@ void MenuPrincipal() {
 	while (!salir)
 	{
 		system("cls");
-		cout << "---Bienvenido, este es el conversor de números a palabras---\n\n";
+		cout << "---Bienvenido, este es el conversor de numeros a palabras---\n\n";
 		cout << "[1] Convertir Numero\n";
 		cout << "[0] Cerrar Programa\n\n";
 		cout << "Opcion a Elegir: ";
