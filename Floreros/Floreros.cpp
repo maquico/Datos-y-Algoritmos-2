@@ -13,21 +13,30 @@ AUTORES: ANGEL MORENO ID:1104666
 
 using namespace std;
 
-int main() {
-	
-	for (int i = 1; i < 100; i++)
+int floreros(int i, int limite) {
+	if (i == limite)
 	{
-		int x = (100 - i);
-		if (x % 6 ==0)
+		return 0;
+	}
+	else
+	{
+		int x = 100 - i;
+		if (x%6 == 0)
 		{
 			int floreros = x - 8;
-			if (floreros%11 == 0)
+			if (floreros%11==0)
 			{
 				cout << "Vendio: " << i << endl;
 				cout << "Quedan: " << floreros << endl;
 			}
 		}
+		floreros(i + 1, limite);
 	}
+}
+
+int main() {
+
+	floreros(1, 100);
 	return 0;
 }
 
