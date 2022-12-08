@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertirNumerosEnLetras", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibonacci", "Fibonacci\Fibonacci.vcxproj", "{276B478D-60FB-4F51-8D93-0C1F98034840}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reloj", "Reloj\Reloj.vcxproj", "{DA887670-8EC1-417C-A743-8D22A721DF6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{276B478D-60FB-4F51-8D93-0C1F98034840}.Release|x64.Build.0 = Release|x64
 		{276B478D-60FB-4F51-8D93-0C1F98034840}.Release|x86.ActiveCfg = Release|Win32
 		{276B478D-60FB-4F51-8D93-0C1F98034840}.Release|x86.Build.0 = Release|Win32
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Debug|x64.ActiveCfg = Debug|x64
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Debug|x64.Build.0 = Debug|x64
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Debug|x86.ActiveCfg = Debug|Win32
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Debug|x86.Build.0 = Debug|Win32
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Release|x64.ActiveCfg = Release|x64
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Release|x64.Build.0 = Release|x64
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Release|x86.ActiveCfg = Release|Win32
+		{DA887670-8EC1-417C-A743-8D22A721DF6D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
