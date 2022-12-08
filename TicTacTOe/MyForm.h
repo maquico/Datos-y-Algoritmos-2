@@ -55,6 +55,8 @@ namespace InicioJuegoTicTacToe {
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::TextBox^ txtNom1;
+	private: System::Windows::Forms::Label^ labelLlenarNombres;
+
 
 
 
@@ -79,6 +81,7 @@ namespace InicioJuegoTicTacToe {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->txtNom1 = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->labelLlenarNombres = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -172,12 +175,26 @@ namespace InicioJuegoTicTacToe {
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Ingrese el Nombre del Jugador 1 (X): ";
 			// 
+			// labelLlenarNombres
+			// 
+			this->labelLlenarNombres->AutoSize = true;
+			this->labelLlenarNombres->Font = (gcnew System::Drawing::Font(L"Calibri", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
+			this->labelLlenarNombres->ForeColor = System::Drawing::Color::Red;
+			this->labelLlenarNombres->Location = System::Drawing::Point(21, 131);
+			this->labelLlenarNombres->Name = L"labelLlenarNombres";
+			this->labelLlenarNombres->Size = System::Drawing::Size(281, 19);
+			this->labelLlenarNombres->TabIndex = 4;
+			this->labelLlenarNombres->Text = L"!!!!Rellene los Campos de los Nombres!!!!";
+			this->labelLlenarNombres->Visible = false;
+			this->labelLlenarNombres->Click += gcnew System::EventHandler(this, &MyForm::label4_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
 			this->ClientSize = System::Drawing::Size(545, 343);
+			this->Controls->Add(this->labelLlenarNombres);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->btnSalir);
 			this->Controls->Add(this->btnJugar);
@@ -201,8 +218,11 @@ namespace InicioJuegoTicTacToe {
 			formq.labelNom2->Text = txtNom2->Text;
 			formq.ShowDialog();
 			this->Visible = true;
+			delete(%formq);
 		}
-		else {}
+		else {
+			labelLlenarNombres->Visible = true;
+		}
 	}
 	//BTN SALIR
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -214,5 +234,7 @@ namespace InicioJuegoTicTacToe {
 
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

@@ -54,7 +54,7 @@ namespace TicTacTOe {
 
 	public:
 
-	private: System::Windows::Forms::PictureBox^ picBoxPrueba;
+
 	private: System::Windows::Forms::Button^ btn01;
 	private: System::Windows::Forms::Button^ btn02;
 	private: System::Windows::Forms::Button^ btn22;
@@ -116,7 +116,6 @@ namespace TicTacTOe {
 			this->labelNom2 = (gcnew System::Windows::Forms::Label());
 			this->picBoxCirculo = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->picBoxPrueba = (gcnew System::Windows::Forms::PictureBox());
 			this->textoGanador = (gcnew System::Windows::Forms::Label());
 			this->btnReiniciar = (gcnew System::Windows::Forms::Button());
 			this->btnSalir = (gcnew System::Windows::Forms::Button());
@@ -124,7 +123,6 @@ namespace TicTacTOe {
 			this->PanelTablero->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxEquis))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxCirculo))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxPrueba))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -259,7 +257,7 @@ namespace TicTacTOe {
 			// 
 			// picBoxEquis
 			// 
-			this->picBoxEquis->Location = System::Drawing::Point(497, 130);
+			this->picBoxEquis->Location = System::Drawing::Point(469, 130);
 			this->picBoxEquis->Name = L"picBoxEquis";
 			this->picBoxEquis->Size = System::Drawing::Size(85, 50);
 			this->picBoxEquis->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -272,26 +270,28 @@ namespace TicTacTOe {
 			this->labelNom1->AutoSize = true;
 			this->labelNom1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labelNom1->Location = System::Drawing::Point(500, 102);
+			this->labelNom1->Location = System::Drawing::Point(472, 102);
 			this->labelNom1->Name = L"labelNom1";
 			this->labelNom1->Size = System::Drawing::Size(76, 25);
 			this->labelNom1->TabIndex = 8;
 			this->labelNom1->Text = L"label2";
+			this->labelNom1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->labelNom1->Click += gcnew System::EventHandler(this, &FormJuego::labelNom1_Click);
 			// 
 			// labelNom2
 			// 
 			this->labelNom2->AutoSize = true;
 			this->labelNom2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->labelNom2->Location = System::Drawing::Point(500, 259);
+			this->labelNom2->Location = System::Drawing::Point(472, 259);
 			this->labelNom2->Name = L"labelNom2";
 			this->labelNom2->Size = System::Drawing::Size(76, 25);
 			this->labelNom2->TabIndex = 9;
 			this->labelNom2->Text = L"label3";
+			this->labelNom2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// picBoxCirculo
 			// 
-			this->picBoxCirculo->Location = System::Drawing::Point(497, 287);
+			this->picBoxCirculo->Location = System::Drawing::Point(469, 287);
 			this->picBoxCirculo->Name = L"picBoxCirculo";
 			this->picBoxCirculo->Size = System::Drawing::Size(85, 50);
 			this->picBoxCirculo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -304,34 +304,26 @@ namespace TicTacTOe {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(504, 202);
+			this->label2->Location = System::Drawing::Point(476, 202);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(70, 42);
 			this->label2->TabIndex = 11;
 			this->label2->Text = L"VS";
 			this->label2->Click += gcnew System::EventHandler(this, &FormJuego::label2_Click_1);
 			// 
-			// picBoxPrueba
-			// 
-			this->picBoxPrueba->Location = System::Drawing::Point(12, 121);
-			this->picBoxPrueba->Name = L"picBoxPrueba";
-			this->picBoxPrueba->Size = System::Drawing::Size(85, 50);
-			this->picBoxPrueba->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->picBoxPrueba->TabIndex = 12;
-			this->picBoxPrueba->TabStop = false;
-			// 
 			// textoGanador
 			// 
 			this->textoGanador->AutoSize = true;
-			this->textoGanador->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->textoGanador->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->textoGanador->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->textoGanador->Location = System::Drawing::Point(119, 373);
+			this->textoGanador->Location = System::Drawing::Point(121, 374);
 			this->textoGanador->Name = L"textoGanador";
-			this->textoGanador->Size = System::Drawing::Size(66, 24);
+			this->textoGanador->Size = System::Drawing::Size(57, 20);
 			this->textoGanador->TabIndex = 14;
 			this->textoGanador->Text = L"label4";
+			this->textoGanador->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->textoGanador->Visible = false;
 			// 
 			// btnReiniciar
@@ -341,7 +333,7 @@ namespace TicTacTOe {
 			this->btnReiniciar->Enabled = false;
 			this->btnReiniciar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReiniciar->Location = System::Drawing::Point(459, 368);
+			this->btnReiniciar->Location = System::Drawing::Point(454, 368);
 			this->btnReiniciar->Name = L"btnReiniciar";
 			this->btnReiniciar->Size = System::Drawing::Size(117, 33);
 			this->btnReiniciar->TabIndex = 15;
@@ -384,7 +376,6 @@ namespace TicTacTOe {
 			this->Controls->Add(this->btnSalir);
 			this->Controls->Add(this->btnReiniciar);
 			this->Controls->Add(this->textoGanador);
-			this->Controls->Add(this->picBoxPrueba);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->picBoxCirculo);
 			this->Controls->Add(this->labelNom2);
@@ -399,15 +390,14 @@ namespace TicTacTOe {
 			this->PanelTablero->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxEquis))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxCirculo))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxPrueba))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\Equis.jpeg");
-		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\Circulo.jpeg");
+		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\equiscasillas.jpg");
+		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\circulocasilla.jpg");
 		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -437,13 +427,13 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 		{
 			if (var->Tag == nullptr && !partidaTerminada) {
 				if (JuegaX) {
-					var->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\equiscasillas.jpg");
+					var->Image = picBoxEquis->Image;
 					var->Tag = "X";
 					JuegaX = false;
 					Juega0 = true;
 				}
 				else {
-					var->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\circulocasilla.jpg");
+					var->Image = picBoxCirculo->Image;
 					var->Tag = "0";
 					Juega0 = false;
 					JuegaX = true;
@@ -464,9 +454,9 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 						btnReiniciar->Enabled = true;
 						btnSalir->Enabled = true;
 					}
-					else if (RevisarDiagonales("0") || RevisarColumnas("0") || RevisarColumnas("0"))
+					else if (RevisarDiagonales("0") || RevisarColumnas("0") || RevisarFilas("0"))
 					{
-						(numpartidas % 2 == 0) ? numpartidas ++ : numpartidas+=0;
+						(numpartidas % 2 == 0) ? numpartidas++ : numpartidas += 0;
 						partidaTerminada = true;
 						JuegaX = false;
 						Juega0 = false;
@@ -477,16 +467,17 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 						btnReiniciar->Enabled = true;
 						btnSalir->Enabled = true;
 					}
+					else if (jugadas == 9) {
+						numpartidas++;
+						partidaTerminada = true;
+						btnReiniciar->Enabled = true;
+						btnSalir->Enabled = true;
+						textoGanador->Visible = true;
+						textoGanador->ForeColor = Color::Red;
+						textoGanador->Text = "!!!!!Son duros, se dio un empate!!!!!!";
+					}
 				}
-				else if (jugadas == 9) {
-					numpartidas++;
-					partidaTerminada = true;
-					btnReiniciar->Enabled = true;
-					btnSalir->Enabled = true;
-					textoGanador->Visible = true;
-					textoGanador->ForeColor = Color::Red;
-					textoGanador->Text = "!!!!!Son duros, se dio un empate!!!!!!";
-				}
+				
 			}
 		}
 	}
@@ -565,6 +556,17 @@ private: System::Void btnReiniciar_Click(System::Object^ sender, System::EventAr
 
 }
 private: System::Void btnSalir_Click(System::Object^ sender, System::EventArgs^ e) {
+	for each (Button ^ var in PanelTablero->Controls)
+	{
+		var->Enabled = true;
+		var->Image = btnReiniciar->Image;
+		var->Tag = nullptr;
+	}
+	jugadas = 0;
+	numpartidas = 0;
+	JuegaX = true;
+	Juega0 = false;
+	partidaTerminada = false;
 	this->Close();
 }
 };
