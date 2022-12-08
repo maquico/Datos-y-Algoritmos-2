@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertirNumerosEnLetras", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibonacci", "Fibonacci\Fibonacci.vcxproj", "{276B478D-60FB-4F51-8D93-0C1F98034840}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacTOe", "..\..\TicTacTOe\TicTacTOe.vcxproj", "{3DA03037-4383-4C58-99C1-29D4DF041261}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacTOe", "TicTacTOe\TicTacTOe.vcxproj", "{3DA03037-4383-4C58-99C1-29D4DF041261}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

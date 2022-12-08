@@ -258,7 +258,7 @@ namespace InicioJuegoTicTacToe {
 #pragma endregion
 	//BTN JUGAR
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (txtNom1->Text != "" && txtNom1->Text != nullptr && txtNom2->Text != "" && txtNom2->Text != nullptr && txtNom1->Text != txtNom2->Text) {
+		if (txtNom1->Text != " " && txtNom1->Text != nullptr && txtNom2->Text != " " && txtNom2->Text != nullptr && txtNom1->Text != txtNom2->Text) {
 			this->Visible = false;
 			FormJuego formq;
 			formq.labelNom1->Text = txtNom1->Text;

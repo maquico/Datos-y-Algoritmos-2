@@ -72,6 +72,8 @@ namespace TicTacTOe {
 	private: System::Windows::Forms::Button^ btnReiniciar;
 	private: System::Windows::Forms::Button^ btnSalir;
 	private: System::Windows::Forms::Label^ jugEmpieza;
+	public: System::Windows::Forms::Label^ labelJugadorJugandp;
+	private:
 
 	private:
 
@@ -120,6 +122,7 @@ namespace TicTacTOe {
 			this->btnReiniciar = (gcnew System::Windows::Forms::Button());
 			this->btnSalir = (gcnew System::Windows::Forms::Button());
 			this->jugEmpieza = (gcnew System::Windows::Forms::Label());
+			this->labelJugadorJugandp = (gcnew System::Windows::Forms::Label());
 			this->PanelTablero->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxEquis))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picBoxCirculo))->BeginInit();
@@ -387,11 +390,26 @@ namespace TicTacTOe {
 			this->jugEmpieza->TabIndex = 17;
 			this->jugEmpieza->Text = L"Comienza X";
 			// 
+			// labelJugadorJugandp
+			// 
+			this->labelJugadorJugandp->AutoSize = true;
+			this->labelJugadorJugandp->Font = (gcnew System::Drawing::Font(L"Calibri", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->labelJugadorJugandp->ForeColor = System::Drawing::Color::Blue;
+			this->labelJugadorJugandp->Location = System::Drawing::Point(10, 111);
+			this->labelJugadorJugandp->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelJugadorJugandp->Name = L"labelJugadorJugandp";
+			this->labelJugadorJugandp->Size = System::Drawing::Size(62, 24);
+			this->labelJugadorJugandp->TabIndex = 18;
+			this->labelJugadorJugandp->Text = L"label3";
+			this->labelJugadorJugandp->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// FormJuego
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(801, 508);
+			this->Controls->Add(this->labelJugadorJugandp);
 			this->Controls->Add(this->jugEmpieza);
 			this->Controls->Add(this->btnSalir);
 			this->Controls->Add(this->btnReiniciar);
@@ -419,7 +437,7 @@ namespace TicTacTOe {
 	public: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\equiscasillas.jpg");
 		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\circulocasilla.jpg");
-		
+		labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -452,12 +470,14 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 					var->Tag = "X";
 					JuegaX = false;
 					Juega0 = true;
+					labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
 				}
 				else {
 					var->Image = picBoxCirculo->Image;
 					var->Tag = "0";
 					Juega0 = false;
 					JuegaX = true;
+					labelJugadorJugandp->Text = "Está jugando " + labelNom2->Text;
 				}
 				jugadas++;
 				if (jugadas >= 5) {
@@ -506,8 +526,7 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 private: System::Void PanelReina_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void FormJuego_Click(System::Object^ sender, System::EventArgs^ e) {
-	Point posicionForm = this->Location; //Ubicacion del form en la pantalla
-	Point posicionCliqueada = PanelTablero->MousePosition; //Donde el usuario hizo click
+
 }
 private: System::Void btn01_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -568,11 +587,13 @@ private: System::Void btnReiniciar_Click(System::Object^ sender, System::EventAr
 		jugEmpieza->Text = "Comienza X";
 		JuegaX = true;
 		Juega0 = false;
+		labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
 	}
 	else {
 		jugEmpieza->Text = "Comienza O";
 		JuegaX = false;
 		Juega0 = true;
+		labelJugadorJugandp->Text = "Está jugando " + labelNom2->Text;
 	}
 
 }
