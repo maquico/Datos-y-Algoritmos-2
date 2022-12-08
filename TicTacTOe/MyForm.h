@@ -1,3 +1,14 @@
+/*
+* ENUNCIADO: TAREA 2. TIC TAC TOE
+* ASUNTO: Haga un programa C++ que permita que dos jugadores jueguen Tic-Tac-Toe. 
+*
+AUTORES: ANGEL MORENO ID:1104666
+*        GLEIDY ESPINAL ID:1104225
+*        ALLEN SILVERIO ID:1104220
+*        CRISTIAN JIMÉNEZ ID:1106166
+*        WILLIAM FERREIRA ID:1104228
+* FECHA: 08/12/2022
+*/
 #pragma once
 #include "Juego.h"
 using namespace TicTacTOe;
@@ -22,8 +33,8 @@ namespace InicioJuegoTicTacToe {
 		MyForm(void)
 		{
 			InitializeComponent();
-			this->picboxEquis1 ->Image= Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\equiscasillas.jpg");
-			this->picboxCirculo2->Image= Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\circulocasilla.jpg");
+			this->picboxEquis1 ->Image= Image::FromFile("C:\\Users\\crist\\OneDrive\\Escritorio\\ImagenesTicTacToe\\equiscasillas.jpg");
+			this->picboxCirculo2->Image= Image::FromFile("C:\\Users\\crist\\OneDrive\\Escritorio\\ImagenesTicTacToe\\circulocasilla.jpg");
 			//
 			//TODO: Add the constructor code here
 			//
@@ -220,6 +231,7 @@ namespace InicioJuegoTicTacToe {
 			this->picboxEquis1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->picboxEquis1->TabIndex = 9;
 			this->picboxEquis1->TabStop = false;
+			this->picboxEquis1->Click += gcnew System::EventHandler(this, &MyForm::picboxEquis1_Click);
 			// 
 			// picboxCirculo2
 			// 
@@ -295,5 +307,7 @@ namespace InicioJuegoTicTacToe {
 	}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void picboxEquis1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

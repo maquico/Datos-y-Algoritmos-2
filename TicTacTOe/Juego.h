@@ -1,3 +1,14 @@
+/*
+* ENUNCIADO: TAREA 2. TIC TAC TOE
+* ASUNTO: Haga un programa C++ que permita que dos jugadores jueguen Tic-Tac-Toe.
+*
+AUTORES: ANGEL MORENO ID:1104666
+*        GLEIDY ESPINAL ID:1104225
+*        ALLEN SILVERIO ID:1104220
+*        CRISTIAN JIMÉNEZ ID:1106166
+*        WILLIAM FERREIRA ID:1104228
+* FECHA: 08/12/2022
+*/
 #pragma once
 #include "iostream"
 using namespace std;
@@ -435,8 +446,8 @@ namespace TicTacTOe {
 		}
 #pragma endregion
 	public: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\equiscasillas.jpg");
-		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\circulocasilla.jpg");
+		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\crist\\OneDrive\\Escritorio\\ImagenesTicTacToe\\equiscasillas.jpg");
+		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\crist\\OneDrive\\Escritorio\\ImagenesTicTacToe\\circulocasilla.jpg");
 		labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -470,14 +481,14 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 					var->Tag = "X";
 					JuegaX = false;
 					Juega0 = true;
-					labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
+					labelJugadorJugandp->Text = "Está jugando " + labelNom2->Text;
 				}
 				else {
 					var->Image = picBoxCirculo->Image;
 					var->Tag = "0";
 					Juega0 = false;
 					JuegaX = true;
-					labelJugadorJugandp->Text = "Está jugando " + labelNom2->Text;
+					labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
 				}
 				jugadas++;
 				if (jugadas >= 5) {
