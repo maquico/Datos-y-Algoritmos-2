@@ -282,7 +282,7 @@ namespace TicTacTOe {
 			this->labelNom1->AutoSize = true;
 			this->labelNom1->Font = (gcnew System::Drawing::Font(L"Calibri", 16.2F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->labelNom1->Location = System::Drawing::Point(598, 112);
+			this->labelNom1->Location = System::Drawing::Point(566, 111);
 			this->labelNom1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelNom1->Name = L"labelNom1";
 			this->labelNom1->Size = System::Drawing::Size(87, 35);
@@ -296,7 +296,7 @@ namespace TicTacTOe {
 			this->labelNom2->AutoSize = true;
 			this->labelNom2->Font = (gcnew System::Drawing::Font(L"Calibri", 16.2F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->labelNom2->Location = System::Drawing::Point(598, 305);
+			this->labelNom2->Location = System::Drawing::Point(570, 304);
 			this->labelNom2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelNom2->Name = L"labelNom2";
 			this->labelNom2->Size = System::Drawing::Size(87, 35);

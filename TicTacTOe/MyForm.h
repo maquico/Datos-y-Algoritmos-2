@@ -162,6 +162,7 @@ namespace InicioJuegoTicTacToe {
 			// 
 			this->txtNom2->Location = System::Drawing::Point(43, 174);
 			this->txtNom2->Margin = System::Windows::Forms::Padding(4);
+			this->txtNom2->MaxLength = 15;
 			this->txtNom2->Name = L"txtNom2";
 			this->txtNom2->Size = System::Drawing::Size(336, 32);
 			this->txtNom2->TabIndex = 3;
@@ -181,6 +182,7 @@ namespace InicioJuegoTicTacToe {
 			// 
 			this->txtNom1->Location = System::Drawing::Point(43, 74);
 			this->txtNom1->Margin = System::Windows::Forms::Padding(4);
+			this->txtNom1->MaxLength = 15;
 			this->txtNom1->Name = L"txtNom1";
 			this->txtNom1->Size = System::Drawing::Size(336, 32);
 			this->txtNom1->TabIndex = 1;
