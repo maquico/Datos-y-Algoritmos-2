@@ -28,7 +28,6 @@ int main() {
 		if (CadenaMasLarga(i, 0) > mayorCadena) mayorCadena = i;
 	}
 	cout << "El numero con la mayor cadena es: " << mayorCadena;
-	cout << "El numero de pasos es:" << CadenaMasLarga(97, 0);
 
 	return 0;
 
