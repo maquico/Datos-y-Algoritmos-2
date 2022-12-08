@@ -128,12 +128,13 @@ namespace TicTacTOe {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Calibri", 48, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(95, 9);
+			this->label1->Location = System::Drawing::Point(109, 11);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(314, 78);
+			this->label1->Size = System::Drawing::Size(395, 97);
 			this->label1->TabIndex = 5;
 			this->label1->Text = L"Tic Tac Toe";
 			// 
@@ -150,9 +151,10 @@ namespace TicTacTOe {
 			this->PanelTablero->Controls->Add(this->btn02);
 			this->PanelTablero->Controls->Add(this->btn01);
 			this->PanelTablero->Controls->Add(this->btn00);
-			this->PanelTablero->Location = System::Drawing::Point(123, 108);
+			this->PanelTablero->Location = System::Drawing::Point(164, 133);
+			this->PanelTablero->Margin = System::Windows::Forms::Padding(4);
 			this->PanelTablero->Name = L"PanelTablero";
-			this->PanelTablero->Size = System::Drawing::Size(220, 220);
+			this->PanelTablero->Size = System::Drawing::Size(292, 270);
 			this->PanelTablero->TabIndex = 6;
 			this->PanelTablero->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &FormJuego::PanelReina_Paint);
 			// 
@@ -160,9 +162,10 @@ namespace TicTacTOe {
 			// 
 			this->btn22->BackColor = System::Drawing::Color::White;
 			this->btn22->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn22->Location = System::Drawing::Point(146, 145);
+			this->btn22->Location = System::Drawing::Point(195, 178);
+			this->btn22->Margin = System::Windows::Forms::Padding(4);
 			this->btn22->Name = L"btn22";
-			this->btn22->Size = System::Drawing::Size(70, 70);
+			this->btn22->Size = System::Drawing::Size(93, 86);
 			this->btn22->TabIndex = 12;
 			this->btn22->UseVisualStyleBackColor = false;
 			this->btn22->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -171,9 +174,10 @@ namespace TicTacTOe {
 			// 
 			this->btn21->BackColor = System::Drawing::Color::White;
 			this->btn21->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn21->Location = System::Drawing::Point(73, 145);
+			this->btn21->Location = System::Drawing::Point(97, 178);
+			this->btn21->Margin = System::Windows::Forms::Padding(4);
 			this->btn21->Name = L"btn21";
-			this->btn21->Size = System::Drawing::Size(70, 70);
+			this->btn21->Size = System::Drawing::Size(93, 86);
 			this->btn21->TabIndex = 11;
 			this->btn21->UseVisualStyleBackColor = false;
 			this->btn21->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -182,9 +186,10 @@ namespace TicTacTOe {
 			// 
 			this->btn20->BackColor = System::Drawing::Color::White;
 			this->btn20->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn20->Location = System::Drawing::Point(0, 145);
+			this->btn20->Location = System::Drawing::Point(0, 178);
+			this->btn20->Margin = System::Windows::Forms::Padding(4);
 			this->btn20->Name = L"btn20";
-			this->btn20->Size = System::Drawing::Size(70, 70);
+			this->btn20->Size = System::Drawing::Size(93, 86);
 			this->btn20->TabIndex = 10;
 			this->btn20->UseVisualStyleBackColor = false;
 			this->btn20->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -193,9 +198,10 @@ namespace TicTacTOe {
 			// 
 			this->btn12->BackColor = System::Drawing::Color::White;
 			this->btn12->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn12->Location = System::Drawing::Point(146, 73);
+			this->btn12->Location = System::Drawing::Point(195, 90);
+			this->btn12->Margin = System::Windows::Forms::Padding(4);
 			this->btn12->Name = L"btn12";
-			this->btn12->Size = System::Drawing::Size(70, 70);
+			this->btn12->Size = System::Drawing::Size(93, 86);
 			this->btn12->TabIndex = 9;
 			this->btn12->UseVisualStyleBackColor = false;
 			this->btn12->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -204,9 +210,10 @@ namespace TicTacTOe {
 			// 
 			this->btn11->BackColor = System::Drawing::Color::White;
 			this->btn11->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn11->Location = System::Drawing::Point(73, 73);
+			this->btn11->Location = System::Drawing::Point(97, 90);
+			this->btn11->Margin = System::Windows::Forms::Padding(4);
 			this->btn11->Name = L"btn11";
-			this->btn11->Size = System::Drawing::Size(70, 70);
+			this->btn11->Size = System::Drawing::Size(93, 86);
 			this->btn11->TabIndex = 8;
 			this->btn11->UseVisualStyleBackColor = false;
 			this->btn11->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -215,9 +222,10 @@ namespace TicTacTOe {
 			// 
 			this->btn10->BackColor = System::Drawing::Color::White;
 			this->btn10->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn10->Location = System::Drawing::Point(0, 73);
+			this->btn10->Location = System::Drawing::Point(0, 90);
+			this->btn10->Margin = System::Windows::Forms::Padding(4);
 			this->btn10->Name = L"btn10";
-			this->btn10->Size = System::Drawing::Size(70, 70);
+			this->btn10->Size = System::Drawing::Size(93, 86);
 			this->btn10->TabIndex = 7;
 			this->btn10->UseVisualStyleBackColor = false;
 			this->btn10->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -226,9 +234,10 @@ namespace TicTacTOe {
 			// 
 			this->btn02->BackColor = System::Drawing::Color::White;
 			this->btn02->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn02->Location = System::Drawing::Point(146, 0);
+			this->btn02->Location = System::Drawing::Point(195, 0);
+			this->btn02->Margin = System::Windows::Forms::Padding(4);
 			this->btn02->Name = L"btn02";
-			this->btn02->Size = System::Drawing::Size(70, 70);
+			this->btn02->Size = System::Drawing::Size(93, 86);
 			this->btn02->TabIndex = 6;
 			this->btn02->UseVisualStyleBackColor = false;
 			this->btn02->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -237,9 +246,10 @@ namespace TicTacTOe {
 			// 
 			this->btn01->BackColor = System::Drawing::Color::White;
 			this->btn01->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->btn01->Location = System::Drawing::Point(73, 0);
+			this->btn01->Location = System::Drawing::Point(97, 0);
+			this->btn01->Margin = System::Windows::Forms::Padding(4);
 			this->btn01->Name = L"btn01";
-			this->btn01->Size = System::Drawing::Size(70, 70);
+			this->btn01->Size = System::Drawing::Size(93, 86);
 			this->btn01->TabIndex = 5;
 			this->btn01->UseVisualStyleBackColor = false;
 			this->btn01->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
@@ -249,18 +259,20 @@ namespace TicTacTOe {
 			this->btn00->BackColor = System::Drawing::Color::White;
 			this->btn00->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
 			this->btn00->Location = System::Drawing::Point(0, 0);
+			this->btn00->Margin = System::Windows::Forms::Padding(4);
 			this->btn00->Name = L"btn00";
-			this->btn00->Size = System::Drawing::Size(70, 70);
+			this->btn00->Size = System::Drawing::Size(93, 86);
 			this->btn00->TabIndex = 4;
 			this->btn00->UseVisualStyleBackColor = false;
 			this->btn00->Click += gcnew System::EventHandler(this, &FormJuego::button1_Click_1);
 			// 
 			// picBoxEquis
 			// 
-			this->picBoxEquis->Location = System::Drawing::Point(469, 130);
+			this->picBoxEquis->Location = System::Drawing::Point(594, 146);
+			this->picBoxEquis->Margin = System::Windows::Forms::Padding(4);
 			this->picBoxEquis->Name = L"picBoxEquis";
-			this->picBoxEquis->Size = System::Drawing::Size(85, 50);
-			this->picBoxEquis->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picBoxEquis->Size = System::Drawing::Size(113, 62);
+			this->picBoxEquis->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->picBoxEquis->TabIndex = 7;
 			this->picBoxEquis->TabStop = false;
 			this->picBoxEquis->Click += gcnew System::EventHandler(this, &FormJuego::pictureBox1_Click);
@@ -268,11 +280,12 @@ namespace TicTacTOe {
 			// labelNom1
 			// 
 			this->labelNom1->AutoSize = true;
-			this->labelNom1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->labelNom1->Location = System::Drawing::Point(472, 102);
+			this->labelNom1->Font = (gcnew System::Drawing::Font(L"Calibri", 16.2F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->labelNom1->Location = System::Drawing::Point(598, 112);
+			this->labelNom1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelNom1->Name = L"labelNom1";
-			this->labelNom1->Size = System::Drawing::Size(76, 25);
+			this->labelNom1->Size = System::Drawing::Size(87, 35);
 			this->labelNom1->TabIndex = 8;
 			this->labelNom1->Text = L"label2";
 			this->labelNom1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -281,20 +294,23 @@ namespace TicTacTOe {
 			// labelNom2
 			// 
 			this->labelNom2->AutoSize = true;
-			this->labelNom2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->labelNom2->Location = System::Drawing::Point(472, 259);
+			this->labelNom2->Font = (gcnew System::Drawing::Font(L"Calibri", 16.2F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->labelNom2->Location = System::Drawing::Point(598, 305);
+			this->labelNom2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelNom2->Name = L"labelNom2";
-			this->labelNom2->Size = System::Drawing::Size(76, 25);
+			this->labelNom2->Size = System::Drawing::Size(87, 35);
 			this->labelNom2->TabIndex = 9;
 			this->labelNom2->Text = L"label3";
 			this->labelNom2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// picBoxCirculo
 			// 
-			this->picBoxCirculo->Location = System::Drawing::Point(469, 287);
+			this->picBoxCirculo->Location = System::Drawing::Point(594, 339);
+			this->picBoxCirculo->Margin = System::Windows::Forms::Padding(4);
 			this->picBoxCirculo->Name = L"picBoxCirculo";
-			this->picBoxCirculo->Size = System::Drawing::Size(85, 50);
-			this->picBoxCirculo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picBoxCirculo->Size = System::Drawing::Size(113, 62);
+			this->picBoxCirculo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
 			this->picBoxCirculo->TabIndex = 10;
 			this->picBoxCirculo->TabStop = false;
 			// 
@@ -304,9 +320,10 @@ namespace TicTacTOe {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 27.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(476, 202);
+			this->label2->Location = System::Drawing::Point(585, 247);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(70, 42);
+			this->label2->Size = System::Drawing::Size(87, 54);
 			this->label2->TabIndex = 11;
 			this->label2->Text = L"VS";
 			this->label2->Click += gcnew System::EventHandler(this, &FormJuego::label2_Click_1);
@@ -316,11 +333,11 @@ namespace TicTacTOe {
 			this->textoGanador->AutoSize = true;
 			this->textoGanador->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->textoGanador->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->textoGanador->Location = System::Drawing::Point(121, 374);
+			this->textoGanador->ForeColor = System::Drawing::Color::LimeGreen;
+			this->textoGanador->Location = System::Drawing::Point(147, 459);
+			this->textoGanador->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->textoGanador->Name = L"textoGanador";
-			this->textoGanador->Size = System::Drawing::Size(57, 20);
+			this->textoGanador->Size = System::Drawing::Size(70, 25);
 			this->textoGanador->TabIndex = 14;
 			this->textoGanador->Text = L"label4";
 			this->textoGanador->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -328,14 +345,14 @@ namespace TicTacTOe {
 			// 
 			// btnReiniciar
 			// 
-			this->btnReiniciar->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
+			this->btnReiniciar->BackColor = System::Drawing::Color::PaleGreen;
 			this->btnReiniciar->Enabled = false;
 			this->btnReiniciar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReiniciar->Location = System::Drawing::Point(454, 368);
+			this->btnReiniciar->Location = System::Drawing::Point(560, 449);
+			this->btnReiniciar->Margin = System::Windows::Forms::Padding(4);
 			this->btnReiniciar->Name = L"btnReiniciar";
-			this->btnReiniciar->Size = System::Drawing::Size(117, 33);
+			this->btnReiniciar->Size = System::Drawing::Size(156, 41);
 			this->btnReiniciar->TabIndex = 15;
 			this->btnReiniciar->Text = L"Reiniciar";
 			this->btnReiniciar->UseVisualStyleBackColor = false;
@@ -347,9 +364,10 @@ namespace TicTacTOe {
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
 			this->btnSalir->Enabled = false;
 			this->btnSalir->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold));
-			this->btnSalir->Location = System::Drawing::Point(12, 369);
+			this->btnSalir->Location = System::Drawing::Point(16, 454);
+			this->btnSalir->Margin = System::Windows::Forms::Padding(4);
 			this->btnSalir->Name = L"btnSalir";
-			this->btnSalir->Size = System::Drawing::Size(85, 32);
+			this->btnSalir->Size = System::Drawing::Size(113, 39);
 			this->btnSalir->TabIndex = 16;
 			this->btnSalir->Text = L"Salir";
 			this->btnSalir->UseVisualStyleBackColor = false;
@@ -358,20 +376,22 @@ namespace TicTacTOe {
 			// jugEmpieza
 			// 
 			this->jugEmpieza->AutoSize = true;
-			this->jugEmpieza->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->jugEmpieza->ForeColor = System::Drawing::Color::Red;
-			this->jugEmpieza->Location = System::Drawing::Point(449, 29);
+			this->jugEmpieza->BackColor = System::Drawing::Color::Transparent;
+			this->jugEmpieza->Font = (gcnew System::Drawing::Font(L"Calibri", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->jugEmpieza->ForeColor = System::Drawing::Color::Black;
+			this->jugEmpieza->Location = System::Drawing::Point(547, 48);
+			this->jugEmpieza->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->jugEmpieza->Name = L"jugEmpieza";
-			this->jugEmpieza->Size = System::Drawing::Size(133, 20);
+			this->jugEmpieza->Size = System::Drawing::Size(176, 40);
 			this->jugEmpieza->TabIndex = 17;
-			this->jugEmpieza->Text = L"Empiezan las X";
+			this->jugEmpieza->Text = L"Comienza X";
 			// 
 			// FormJuego
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(601, 413);
+			this->ClientSize = System::Drawing::Size(801, 508);
 			this->Controls->Add(this->jugEmpieza);
 			this->Controls->Add(this->btnSalir);
 			this->Controls->Add(this->btnReiniciar);
@@ -383,6 +403,7 @@ namespace TicTacTOe {
 			this->Controls->Add(this->picBoxEquis);
 			this->Controls->Add(this->PanelTablero);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FormJuego";
 			this->Text = L"MyForm1";
 			this->Load += gcnew System::EventHandler(this, &FormJuego::MyForm1_Load);
@@ -395,9 +416,9 @@ namespace TicTacTOe {
 
 		}
 #pragma endregion
-	private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\equiscasillas.jpg");
-		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\circulocasilla.jpg");
+	public: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\equiscasillas.jpg");
+		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Gateway\\Downloads\\ImagenesTicTacToe\\ImagenesTicTacToe\\circulocasilla.jpg");
 		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -447,10 +468,10 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 						partidaTerminada = true;
 						JuegaX = false;
 						Juega0 = false;
-						labelNom1->ForeColor = Color::Green;
-						textoGanador->ForeColor = Color::Green;
+						labelNom1->ForeColor = Color::LimeGreen;
+						textoGanador->ForeColor = Color::LimeGreen;
 						textoGanador->Visible = true;
-						textoGanador->Text = "!!!!!Felicidades " + labelNom1->Text + ", eres el ganador!!!!!!";
+						textoGanador->Text = "¡¡¡Felicidades " + labelNom1->Text + ", eres el ganador!!!";
 						btnReiniciar->Enabled = true;
 						btnSalir->Enabled = true;
 					}
@@ -460,10 +481,10 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 						partidaTerminada = true;
 						JuegaX = false;
 						Juega0 = false;
-						labelNom2->ForeColor = Color::Green;
+						labelNom2->ForeColor = Color::LimeGreen;
 						textoGanador->Visible = true;
-						textoGanador->ForeColor = Color::Green;
-						textoGanador->Text = "!!!!!Felicidades " + labelNom2->Text + ", eres el ganador!!!!!!";
+						textoGanador->ForeColor = Color::LimeGreen;
+						textoGanador->Text = "¡¡¡Felicidades " + labelNom2->Text + ", eres el ganador!!!";
 						btnReiniciar->Enabled = true;
 						btnSalir->Enabled = true;
 					}
@@ -474,7 +495,7 @@ private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^
 						btnSalir->Enabled = true;
 						textoGanador->Visible = true;
 						textoGanador->ForeColor = Color::Red;
-						textoGanador->Text = "!!!!!Son duros, se dio un empate!!!!!!";
+						textoGanador->Text = "¡¡¡Son duros, se dio un empate!!!";
 					}
 				}
 				
@@ -544,12 +565,12 @@ private: System::Void btnReiniciar_Click(System::Object^ sender, System::EventAr
 	labelNom2->ForeColor = Color::Black;
 	textoGanador->Visible = false;
 	if (numpartidas % 2 == 0) {
-		jugEmpieza->Text = "Empiezan las X";
+		jugEmpieza->Text = "Comienza X";
 		JuegaX = true;
 		Juega0 = false;
 	}
 	else {
-		jugEmpieza->Text = "Empiezan los O";
+		jugEmpieza->Text = "Comienza O";
 		JuegaX = false;
 		Juega0 = true;
 	}
