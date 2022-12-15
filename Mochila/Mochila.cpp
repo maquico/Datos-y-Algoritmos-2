@@ -72,10 +72,9 @@ int main() {
     quicksort(beneficiosPorKilo, 0, 5);
     for (int i = 0; i < 5; i++)
     {
-        cout << beneficiosPorKilo[i] << endl;
-        cout << pesos[i] << endl;
-        cout << beneficio[i] << endl;
-        cout << "hoka";
+        cout << beneficiosPorKilo[i] << ", ";
+        cout << pesos[i] << ", ";
+        cout << beneficio[i] << endl <<endl;
     }
 	return 0;
 }
