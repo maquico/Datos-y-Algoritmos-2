@@ -22,6 +22,41 @@ float pesos[5] = {10, 20, 30, 40, 50};
 float beneficio[5] = { 20, 30, 65, 40, 60 };
 float beneficiosPorKilo[5] = { 0,0,0,0,0 };
 
+void quicksort(float beneficiosPorKilo[5], int primero, int ultimo)
+{
+    int central, i, j;
+    double pivote;
+    central = (primero + ultimo) / 2;
+    pivote = beneficiosPorKilo[central];
+    i = primero;
+    j = ultimo;
+    do
+    {
+        while (beneficiosPorKilo[i] < pivote) i++;
+        while (beneficiosPorKilo[j] > pivote) j--;
+        if (i >= j)
+        {
+            double temp;
+            temp = beneficiosPorKilo[i];
+            beneficiosPorKilo[i] = beneficiosPorKilo[j]; /*intercambia A[i] con A[j] */
+            beneficiosPorKilo[j] = temp;
+            temp = pesos[i];
+            pesos[i] = pesos[j];
+            pesos[j] = temp;
+            temp = beneficio[i];
+            beneficio[j] = beneficio[i];
+            i++;
+            j--;
+        }
+    }
+
+    while (i <= j);
+    if (primero < j)
+        quicksort(beneficiosPorKilo, primero, j); /*mismo proceso con sublista izquierda*/
+    if (i < ultimo)
+        quicksort(beneficiosPorKilo, i, ultimo); /*mismo proceso con sublista derecha*/
+}
+
 void CalcularBeneficioPorKilo() {
 	for (int i = 0; i < 5; i++)
 	{
