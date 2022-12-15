@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacTOe", "TicTacTOe\TicT
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DibujarCirculo", "DibujarCirculo\DibujarCirculo.vcxproj", "{43A73346-AF4D-493A-83D0-F2FF5BE83C05}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mochila", "Mochila\Mochila.vcxproj", "{F70676CF-FF83-4689-9A57-38237D79BF7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{43A73346-AF4D-493A-83D0-F2FF5BE83C05}.Release|x64.Build.0 = Release|x64
 		{43A73346-AF4D-493A-83D0-F2FF5BE83C05}.Release|x86.ActiveCfg = Release|Win32
 		{43A73346-AF4D-493A-83D0-F2FF5BE83C05}.Release|x86.Build.0 = Release|Win32
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Debug|x64.ActiveCfg = Debug|x64
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Debug|x64.Build.0 = Debug|x64
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Debug|x86.ActiveCfg = Debug|Win32
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Debug|x86.Build.0 = Debug|Win32
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Release|x64.ActiveCfg = Release|x64
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Release|x64.Build.0 = Release|x64
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Release|x86.ActiveCfg = Release|Win32
+		{F70676CF-FF83-4689-9A57-38237D79BF7F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
