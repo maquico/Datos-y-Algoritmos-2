@@ -51,9 +51,9 @@ void quicksort(float beneficiosPorKilo[5], int primero, int ultimo)
     }
 
     while (i >= j);
-    if (primero < j)
+    if (primero > j)
         quicksort(beneficiosPorKilo, primero, j); /*mismo proceso con sublista izquierda*/
-    if (i < ultimo)
+    if (i > ultimo)
         quicksort(beneficiosPorKilo, i, ultimo); /*mismo proceso con sublista derecha*/
 }
 
