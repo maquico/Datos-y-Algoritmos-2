@@ -69,5 +69,13 @@ void CalcularBeneficioPorKilo() {
 int main() {
 	
 	CalcularBeneficioPorKilo();
+    quicksort(beneficiosPorKilo, 0, 5);
+    for (int i = 0; i < 5; i++)
+    {
+        cout << beneficiosPorKilo[i] << endl;
+        cout << pesos[i] << endl;
+        cout << beneficio[i] << endl;
+        cout << "hoka";
+    }
 	return 0;
 }
