@@ -27,8 +27,8 @@ void CalcularBeneficioPorKilo() {
 	{
 		float beneficioEntrePeso = beneficio[i] / pesos[i];
 		beneficiosPorKilo[i] = beneficioEntrePeso;
+	}
 }
-
 
 
 int main() {
