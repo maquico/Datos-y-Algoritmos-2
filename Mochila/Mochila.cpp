@@ -17,64 +17,126 @@ AUTORES: ANGEL MORENO ID:1104666
 
 using namespace std;
 
-
+float pesoMochila = 0;
+float beneficioMochila = 0;
 float pesos[5] = {10, 20, 30, 40, 50};
 float beneficio[5] = { 20, 30, 65, 40, 60 };
 float beneficiosPorKilo[5] = { 0,0,0,0,0 };
 
-void quicksort(float beneficiosPorKilo[5], int primero, int ultimo)
-{
-    int central, i, j;
-    double pivote;
-    central = (primero + ultimo) / 2;
-    pivote = beneficiosPorKilo[central];
-    i = primero;
-    j = ultimo;
-    do
-    {
-        while (beneficiosPorKilo[i] < pivote) i++;
-        while (beneficiosPorKilo[j] > pivote) j--;
-        if (i <= j)
-        {
-            double temp;
-            temp = beneficiosPorKilo[i];
-            beneficiosPorKilo[i] = beneficiosPorKilo[j]; /*intercambia A[i] con A[j] */
-            beneficiosPorKilo[j] = temp;
-            temp = pesos[i];
-            pesos[i] = pesos[j];
-            pesos[j] = temp;
-            temp = beneficio[i];
-            beneficio[j] = beneficio[i];
-            i++;
-            j--;
+// Bubble sort in C++
+
+#include <iostream>
+using namespace std;
+
+// perform bubble sort
+void BubbleSort(float array[5], int n) {
+
+    // 5, 6, 3, 4 -> 6, 5, 3, 4 -> 6, 5, 3, 4 -> 6, 5, 4, 3
+    // loop to access each array element
+    for (int i = 0; i < n; i++) {
+
+        // loop to compare array elements
+        for (int j = 0; i < n - j; j++) {
+
+            // compare two adjacent elements
+            // change > to < to sort in descending order
+            if (array[j] < array[j + 1]) {
+
+                // swapping elements if elements
+                // are not in the intended order
+                
+                float temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+                temp = pesos[j];
+                pesos[j] = pesos[j + 1];
+                pesos[j + 1] = temp;
+                temp = beneficio[j];
+                beneficio[j] = beneficio[j + 1];
+                beneficio[j + 1] = temp;
+            }
         }
     }
-
-    while (i <= j);
-    if (primero < j)
-        quicksort(beneficiosPorKilo, primero, j); /*mismo proceso con sublista izquierda*/
-    if (i < ultimo)
-        quicksort(beneficiosPorKilo, i, ultimo); /*mismo proceso con sublista derecha*/
 }
+//void quicksort(float beneficiosPorKilo[5], int primero, int ultimo)
+//{
+//    int central, i, j;
+//    double pivote;
+//    central = (primero + ultimo) / 2;
+//    pivote = beneficiosPorKilo[central];
+//    i = primero;
+//    j = ultimo;
+//    do
+//    {
+//        while (beneficiosPorKilo[i] < pivote) i++;
+//        while (beneficiosPorKilo[j] > pivote) j--;
+//        if (i >= j)
+//        {
+//            double temp;
+//            temp = beneficiosPorKilo[i];
+//            beneficiosPorKilo[i] = beneficiosPorKilo[j]; /*intercambia A[i] con A[j] */
+//            beneficiosPorKilo[j] = temp;
+//            temp = pesos[i];
+//            pesos[i] = pesos[j];
+//            pesos[j] = temp;
+//            temp = beneficio[i];
+//            beneficio[j] = beneficio[i];
+//            i++;
+//            j--;
+//        }
+//    }
+//
+//    while (i >= j);
+//    if (primero > j)
+//        quicksort(beneficiosPorKilo, primero, j); /*mismo proceso con sublista izquierda*/
+//    if (i > ultimo)
+//        quicksort(beneficiosPorKilo, i, ultimo); /*mismo proceso con sublista derecha*/
+//}
 
 void CalcularBeneficioPorKilo() {
+
 	for (int i = 0; i < 5; i++)
 	{
 		float beneficioEntrePeso = beneficio[i] / pesos[i];
 		beneficiosPorKilo[i] = beneficioEntrePeso;
 	}
+    
+}
+
+void Mochila() 
+{
+    for (int i = 0; pesoMochila < 100; i++) 
+    {
+        if (pesoMochila + pesos[i] < 100) 
+        {
+            beneficioMochila += beneficio[i];
+            pesoMochila += pesos[i];
+            cout << "Se agrega el paquete que pesa " << pesos[i] << " Kilogramos, con un beneficio de " << beneficio[i] << endl;
+        }
+        else 
+        {
+            float beneficioRestante = 0;
+            float pesoRestante = 0;
+
+            pesoRestante = (100 - pesoMochila);
+            beneficioRestante = pesoRestante / pesos[i];
+            cout << "Se agrega el " << beneficioRestante * 100 << " porciento, del objeto que pesa " << pesos[i] << " kilogramos, ";
+            beneficioRestante *= beneficio[i];
+            cout<<" con un beneficio de " << beneficioRestante <<endl;
+            beneficioMochila += beneficioRestante;
+            pesoMochila += pesoRestante;
+        }
+      
+    }
 }
 
 
 int main() {
 	
 	CalcularBeneficioPorKilo();
-    quicksort(beneficiosPorKilo, 0, 5);
-    for (int i = 0; i < 5; i++)
-    {
-        cout << beneficiosPorKilo[i] << ", ";
-        cout << pesos[i] << ", ";
-        cout << beneficio[i] << endl <<endl;
-    }
+    BubbleSort(beneficiosPorKilo, 5);
+    Mochila();
+    cout << "\n\nEl peso total es " << pesoMochila<< endl;
+    cout << "El beneficio total es " << beneficioMochila << endl;
 	return 0;
 }
