@@ -34,7 +34,7 @@ void quicksort(float beneficiosPorKilo[5], int primero, int ultimo)
     {
         while (beneficiosPorKilo[i] < pivote) i++;
         while (beneficiosPorKilo[j] > pivote) j--;
-        if (i >= j)
+        if (i <= j)
         {
             double temp;
             temp = beneficiosPorKilo[i];
@@ -50,10 +50,10 @@ void quicksort(float beneficiosPorKilo[5], int primero, int ultimo)
         }
     }
 
-    while (i >= j);
-    if (primero > j)
+    while (i <= j);
+    if (primero < j)
         quicksort(beneficiosPorKilo, primero, j); /*mismo proceso con sublista izquierda*/
-    if (i > ultimo)
+    if (i < ultimo)
         quicksort(beneficiosPorKilo, i, ultimo); /*mismo proceso con sublista derecha*/
 }
 
