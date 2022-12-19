@@ -37,14 +37,14 @@ int EsFibonacci(int serieAnt, int serie, int n) {
 }
 int main() {
 
-	cout << "\n\n *--* Funcion que dice si un numero pertenece a la serie y el ultimo elemento de la serie que calculó *--* \n\n";
-	cout << "El ultimo numero de la serie calculado es: " << EsFibonacci(0, 1, 0) << endl;
-	cout << "El ultimo numero de la serie calculado es: " << EsFibonacci(0, 1, 1597) << endl;
-
-	cout << "\n\n *--* Funcion que devuelve el numero de la serie de fibonacci en la posicion solicitada *--* \n\n";
+	cout << "\n\n *--* Funcion que dice si un numero pertenece a la serie y el ultimo elemento de la serie que calculo *--* \n\n";
+	EsFibonacci(0, 1, 8);
+	EsFibonacci(0, 1, 1597);
+	EsFibonacci(0, 1, 6);
+	/*cout << "\n\n *--* Funcion que devuelve el numero de la serie de fibonacci en la posicion solicitada *--* \n\n";
 	int posicion = 0;
 	cout << "El numero en la posicion " << posicion << " es: " << Fibonacci(0, 1, posicion);
-	cout << "El numero en la posicion " << posicion + 8 << " es: " << Fibonacci(0, 1, posicion + 8);
+	cout << "El numero en la posicion " << posicion + 8 << " es: " << Fibonacci(0, 1, posicion + 8);*/
 	return 0;
 }
 

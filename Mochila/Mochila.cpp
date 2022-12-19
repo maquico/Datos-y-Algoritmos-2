@@ -55,24 +55,27 @@ float beneficiosPorKilo[5] = { 0,0,0,0,0 };
 
 void partition(int& particion, int pequeno, int alto)
 {
-    particion = beneficiosPorKilo[alto];
+    particion = beneficiosPorKilo[alto]; //Declaramos como pivote el ultimo elemento del arreglo
     double temp;
     int i, j;
-    j = pequeno;
-    i = pequeno-1;
+    j = pequeno; // J comenzara en la posicion inicial del arreglo
+    i = pequeno-1; // I comenzara en la posicion inicial del arreglo menos 1
 
 
-    while (j <= alto-1)
+    while (j <= alto-1) //Mientras J no se salga del arreglo
     {
-        if (beneficiosPorKilo[j] > particion)
+        if (beneficiosPorKilo[j] > particion)    // 
         {
             i++;
+            //Ordena beneficiosPorKilo
             temp = beneficiosPorKilo[i];
             beneficiosPorKilo[i] = beneficiosPorKilo[j]; 
             beneficiosPorKilo[j] = temp;
+            //Ordena pesos en el orden de beneficiosPorKilo
             temp = pesos[i];
             pesos[i] = pesos[j];
             pesos[j] = temp;
+            //Ordena beneficio en el orden de beneficiosPorKilo
             temp = beneficio[i];
             beneficio[i] = beneficio[j];
             beneficio[j] = temp;
@@ -109,6 +112,7 @@ void CalcularBeneficioPorKilo() {
 	{
         float beneficioEntrePeso = beneficio[i] / pesos[i];
         beneficiosPorKilo[i] = beneficioEntrePeso;
+
 	}
     
 }
