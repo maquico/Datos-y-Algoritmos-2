@@ -147,6 +147,7 @@ int main() {
 		{
 			switch (stoi(opcion)) {
 			case 1:
+				cantSoluciones = 1;
 				system("CLS");
 				GoToXY(30, 10);
 				SetConsoleTextAttribute(hconsole, 11);
