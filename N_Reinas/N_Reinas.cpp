@@ -100,7 +100,11 @@ void LlenarArray (int reinas[], int cantReinas){
 void Nreinas(int reinas[], int cantReinas, int nivel){
 	
 	if(cantReinas == nivel){
-		cout << "Solucion #" << cantSoluciones << " es: ";
+		cout << "Solucion ";
+		cantSoluciones%2 == 0 ? SetConsoleTextAttribute(hconsole, 12) : SetConsoleTextAttribute(hconsole, 14);
+		cout << "#" << cantSoluciones;
+		SetConsoleTextAttribute(hconsole, 7);
+		cout << " es: ";
 		for(int i=0;i <cantReinas; i++ ){
 			(i == cantReinas-1) ? cout << reinas[i] << "." : cout << reinas[i] << " , ";
 		}
@@ -192,6 +196,22 @@ int main() {
 				GoToXY(40, 12);
 				cout << "*-----------------------*";
 				SetConsoleTextAttribute(hconsole, 7);
+				break;
+			default:
+				system("CLS");
+				GoToXY(30, 13);
+				SetConsoleTextAttribute(hconsole, 11);
+				cout << "*------------------------------------------------*";
+				GoToXY(30, 14);
+				cout << "|";
+				SetConsoleTextAttribute(hconsole, 12);
+				cout << "   El valor ingresado no es valido. Reintente   ";
+				SetConsoleTextAttribute(hconsole, 11);
+				cout << "|";
+				GoToXY(30, 15);
+				cout << "*------------------------------------------------*";
+				SetConsoleTextAttribute(hconsole, 7);
+				_getch();
 				break;
 			}
 		}
