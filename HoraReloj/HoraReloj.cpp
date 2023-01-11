@@ -13,7 +13,7 @@ void Hora(int limite) {
 		{
 			hora = (i * 100) + j;
 			cuadrado = i * i + j * j;
-			if(hora==cuadrado) cout << hora << endl;
+			if(hora==cuadrado) cout << hora << ", compuesto por "<< i << " y " << j << endl;
 		}
 	}
 }
