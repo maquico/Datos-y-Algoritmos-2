@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "N_Reinas", "N_Reinas\N_Rein
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacTOeConAlgoritmo", "TicTacTOeConAlgoritmo\TicTacTOeConAlgoritmo.vcxproj", "{35AFD7F0-A0BD-46D4-811E-3031AF4FA6A6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTacToeConAlgoritmoEnConsola", "TicTacToeConAlgoritmoEnConsola\TicTacToeConAlgoritmoEnConsola.vcxproj", "{B272B966-C293-416A-9D3D-F78046892631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{35AFD7F0-A0BD-46D4-811E-3031AF4FA6A6}.Release|x64.Build.0 = Release|x64
 		{35AFD7F0-A0BD-46D4-811E-3031AF4FA6A6}.Release|x86.ActiveCfg = Release|Win32
 		{35AFD7F0-A0BD-46D4-811E-3031AF4FA6A6}.Release|x86.Build.0 = Release|Win32
+		{B272B966-C293-416A-9D3D-F78046892631}.Debug|x64.ActiveCfg = Debug|x64
+		{B272B966-C293-416A-9D3D-F78046892631}.Debug|x64.Build.0 = Debug|x64
+		{B272B966-C293-416A-9D3D-F78046892631}.Debug|x86.ActiveCfg = Debug|Win32
+		{B272B966-C293-416A-9D3D-F78046892631}.Debug|x86.Build.0 = Debug|Win32
+		{B272B966-C293-416A-9D3D-F78046892631}.Release|x64.ActiveCfg = Release|x64
+		{B272B966-C293-416A-9D3D-F78046892631}.Release|x64.Build.0 = Release|x64
+		{B272B966-C293-416A-9D3D-F78046892631}.Release|x86.ActiveCfg = Release|Win32
+		{B272B966-C293-416A-9D3D-F78046892631}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
