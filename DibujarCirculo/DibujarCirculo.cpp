@@ -61,13 +61,33 @@ void DibujarCirculo(int radio) {
 	_getch();
 }
 
+bool validarEntrada(string entrada) {
+	for (int i = 0;i < entrada.length();i++) {
+		if (!isdigit(entrada[i]))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
 int main() {
 	//Imprime lindo hasta radio 19
-	int radio;
-	cout << "Inserte el radio del circulo:\n";
-	cin >> radio;
-	system("cls");
-	DibujarCirculo(radio);
-	_getch();
+	string radio;
+	bool cerrar = false;
+	do {
+		system("cls");
+		cout << "Inserte el radio del circulo:\n";
+		cin >> radio;
+		if (validarEntrada(radio)) {
+			system("cls");
+			DibujarCirculo(stoi(radio));
+		}
+		else {
+			cout << "\n\nNo introducir letras. Ingrese un numero valido";
+		}
+		_getch();
+
+	} while (!cerrar);
 	return 0;
 }
