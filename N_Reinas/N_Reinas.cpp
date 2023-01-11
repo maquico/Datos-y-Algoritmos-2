@@ -26,7 +26,40 @@ void GoToXY(int x, int y)
 	SetConsoleCursorPosition(hconsole, dwPos);
 }
 
-void disenoMenu() {
+void MensajeError() {
+	system("CLS");
+	GoToXY(30, 13);
+	SetConsoleTextAttribute(hconsole, 11);
+	cout << "*------------------------------------------------*";
+	GoToXY(30, 14);
+	cout << "|";
+	SetConsoleTextAttribute(hconsole, 12);
+	cout << "   El valor ingresado no es valido. Reintente   ";
+	SetConsoleTextAttribute(hconsole, 11);
+	cout << "|";
+	GoToXY(30, 15);
+	cout << "*------------------------------------------------*";
+	SetConsoleTextAttribute(hconsole, 7);
+	_getch();
+}
+
+void MensajeCierre() {
+	system("CLS");
+	GoToXY(40, 10);
+	SetConsoleTextAttribute(hconsole, 11);
+	cout << "*-----------------------*";
+	GoToXY(40, 11);
+	cout << "|";
+	SetConsoleTextAttribute(hconsole, 12);
+	cout << "        Cerrando       ";
+	SetConsoleTextAttribute(hconsole, 11);
+	cout << "|";
+	GoToXY(40, 12);
+	cout << "*-----------------------*";
+	SetConsoleTextAttribute(hconsole, 7);
+}
+
+void disenoMenuPrincipal() {
 	GoToXY(32, 6);
 	SetConsoleTextAttribute(hconsole, 13);
 	cout << "*------------------------------------------------*";
@@ -74,6 +107,24 @@ void disenoMenu() {
 	GoToXY(62, 20);
 	SetConsoleTextAttribute(hconsole, 7);
 }
+
+void disenoMenuReinas() {
+	system("CLS");
+	GoToXY(30, 10);
+	SetConsoleTextAttribute(hconsole, 11);
+	cout << "*---------------------------------------------*";
+	GoToXY(30, 11);
+	cout << "|";
+	SetConsoleTextAttribute(hconsole, 7);
+	cout << "      Ingrese la cantidad de Reinas:         ";
+	SetConsoleTextAttribute(hconsole, 11);
+	cout << "|";
+	GoToXY(30, 12);
+	cout << "*---------------------------------------------*";
+	GoToXY(68, 11);
+	SetConsoleTextAttribute(hconsole, 7);
+}
+
 int ValorAbsoluto (int n){
 	if(n < 0){
 		n = n * -1;
@@ -131,90 +182,81 @@ bool validarEntrada(string entrada) {
 	return true;
 }
 
+bool validarRango(int n) {
+	switch (n) {
+	case 0:
+		cout << "Deben haber reinas, barbaro";
+		_getch();
+		return false;
+	case 2:
+		cout << "No existe solucion";
+		_getch();
+		return false;
+	case 3:
+		cout << "No existe solucion";
+		_getch();
+		return false;
+	default:
+		return true;
+	}
+}
+
 int main() {
 	int nivelArbol = 0;
 	int cantReinas;
 	string numReinas;
 	bool cerrar = false;
 	string opcion;
+	bool cerrarReinas = false;
 
 	do {
 		system("CLS");
-		disenoMenu();
+		disenoMenuPrincipal();
 		cin >> opcion;
 
 		if (validarEntrada(opcion))
 		{
 			switch (stoi(opcion)) {
 			case 1:
-				cantSoluciones = 1;
-				system("CLS");
-				GoToXY(30, 10);
-				SetConsoleTextAttribute(hconsole, 11);
-				cout << "*---------------------------------------------*";
-				GoToXY(30, 11);
-				cout << "|";
-				SetConsoleTextAttribute(hconsole, 7);
-				cout << "      Ingrese la cantidad de Reinas:         ";
-				SetConsoleTextAttribute(hconsole, 11);
-				cout << "|";
-				GoToXY(30, 12);
-				cout << "*---------------------------------------------*";
-				GoToXY(68, 11);
-				SetConsoleTextAttribute(hconsole, 7);
-				cin >> numReinas;
+				cerrarReinas = false;
+				do
+				{
+					cantSoluciones = 1;
+					disenoMenuReinas();
+					cin >> numReinas;
 
-				if (validarEntrada(numReinas))
-				{
-					system("CLS");
-					cantReinas = stoi(numReinas);
-					int* reinas = new int[cantReinas];
-					LlenarArray(reinas, cantReinas);
-					Nreinas(reinas, cantReinas, nivelArbol);
-					_getch();
-				}
-				else
-				{
-					GoToXY(30, 14);
-					SetConsoleTextAttribute(hconsole, 12);
-					cout << "El valor ingresado no es valido. Reintente";
-					SetConsoleTextAttribute(hconsole, 7);
-					_getch();
-				}
+					if (validarEntrada(numReinas))
+					{
+						cantReinas = stoi(numReinas);
+						if (validarRango(cantReinas))
+						{
+							system("CLS");
+
+							int* reinas = new int[cantReinas];
+							LlenarArray(reinas, cantReinas);
+							Nreinas(reinas, cantReinas, nivelArbol);
+							_getch();
+							cerrarReinas = true;
+						}
+					}
+					else
+					{
+						MensajeError();
+					}
+				} while (!cerrarReinas);
+				
 				break;
 			case 0:
 				cerrar = true;
-				system("CLS");
-				GoToXY(40, 10);
-				SetConsoleTextAttribute(hconsole, 11);
-				cout << "*-----------------------*";
-				GoToXY(40, 11);
-				cout << "|";
-				SetConsoleTextAttribute(hconsole, 12);
-				cout << "        Cerrando       ";
-				SetConsoleTextAttribute(hconsole, 11);
-				cout << "|";
-				GoToXY(40, 12);
-				cout << "*-----------------------*";
-				SetConsoleTextAttribute(hconsole, 7);
+				MensajeCierre();
 				break;
 			default:
-				system("CLS");
-				GoToXY(30, 13);
-				SetConsoleTextAttribute(hconsole, 11);
-				cout << "*------------------------------------------------*";
-				GoToXY(30, 14);
-				cout << "|";
-				SetConsoleTextAttribute(hconsole, 12);
-				cout << "   El valor ingresado no es valido. Reintente   ";
-				SetConsoleTextAttribute(hconsole, 11);
-				cout << "|";
-				GoToXY(30, 15);
-				cout << "*------------------------------------------------*";
-				SetConsoleTextAttribute(hconsole, 7);
-				_getch();
+				MensajeError();
 				break;
 			}
+		}
+		else {
+			MensajeError();
 		}
 
 	} while (!cerrar);

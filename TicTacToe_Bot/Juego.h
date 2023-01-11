@@ -448,8 +448,6 @@ namespace TicTacTOe {
 	public: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Angel\\source\\repos\\Datos-y-Algoritmos-2\\TicTacTOe\\ImagenesTicTacToe\\equiscasillas.jpg");
 		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Angel\\source\\repos\\Datos-y-Algoritmos-2\\TicTacTOe\\ImagenesTicTacToe\\circulocasilla.jpg");
-		this->picBoxEquis->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\equiscasillas.jpg");
-		this->picBoxCirculo->Image = Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\circulocasilla.jpg");
 		labelJugadorJugandp->Text = "Está jugando " + labelNom1->Text;
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -33,8 +33,8 @@ namespace InicioJuegoTicTacToe {
 		MyForm(void)
 		{
 			InitializeComponent();
-			this->picboxEquis1 ->Image= Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\equiscasillas.jpg");
-			this->picboxCirculo2->Image= Image::FromFile("C:\\Users\\Chawillfer\\Desktop\\ImagenesTicTacToe\\circulocasilla.jpg");
+			this->picboxEquis1 ->Image= Image::FromFile("C:\\Users\\Angel\\source\\repos\\Datos-y-Algoritmos-2\\TicTacTOe\\ImagenesTicTacToe\\equiscasillas.jpg");
+			this->picboxCirculo2->Image= Image::FromFile("C:\\Users\\Angel\\source\\repos\\Datos-y-Algoritmos-2\\TicTacTOe\\ImagenesTicTacToe\\circulocasilla.jpg");
 			//
 			//TODO: Add the constructor code here
 			//
