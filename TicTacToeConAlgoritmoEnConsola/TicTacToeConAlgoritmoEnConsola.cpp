@@ -202,7 +202,7 @@ int minimax(char tablero[3][3], int profundidad, bool esBot)
 	}
 }
 
-// Function to calculate best move
+// Funcion que calcula la jugada del bot y almacena la posicion en las variables posXbot y posYbot
 void MejorMovimiento(char tablero[3][3], int jugada)
 {
 	int x = -1, y = -1;
