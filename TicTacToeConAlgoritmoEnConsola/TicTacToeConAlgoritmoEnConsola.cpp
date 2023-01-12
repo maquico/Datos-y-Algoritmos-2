@@ -75,12 +75,12 @@ void TableroVisual()
 //	jugadas++;
 //}
 
-void Borrar(char tablero[3][3])
+void Borrar()
 {
 	// Initially the board is empty 
 	for (int i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < SIDE; j++)
+		for (int j = 0; j < 3; j++)
 			tablero[i][j] = ' ';
 	}
 }
@@ -303,7 +303,7 @@ int main()
 	cin >> opcionSimbolo;
 
 	
-
+	Borrar();
 	switch (opcionSimbolo) {
 	case 1: 
 		simboloBot = 'O';
