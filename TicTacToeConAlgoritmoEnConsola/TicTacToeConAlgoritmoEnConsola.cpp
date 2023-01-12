@@ -8,10 +8,13 @@
 
 using namespace std;
 COORD posAmenazada;
+int dimension = 3;
 int tablero[3][3] = { {0,0,0}, {0,0,0}, {0,0,0} };
 bool partidaTerminada = false, botX=false;
 int jugadas = 0;
 char simboloOponente, simboloBot;
+
+#define DIMENSION 3;
 
 void GoToXY(int x, int y)
 {//La función coloca el cursor para imprimir en el lugar que queramos.
@@ -69,49 +72,112 @@ void ColocarJugada (int posX, int posY, bool jugadaUsuario){
 	jugadas++;
 }
 
-void JugadaBot() {
-	if(jugadas == 0){
-		ColocarJugada(1, 1, false);
+
+bool RevisarFilas(char tablero[][3])
+{
+	for (int i = 0; i < 3; i++)
+	{
+		if (tablero[i][0] == tablero[i][1] && tablero[i][1] == tablero[i][2] && tablero[i][0] != ' ') return true;	
 	}
-	else{
-		HayAmenaza(1);
-	}
+	return false;
 }
 
-int HayAmenaza(int n){
-	
-	
+bool RevisarColumnas(char tablero[][3])
+{
+	for (int i = 0; i < 3; i++)
+	{
+		if (tablero[0][i] == tablero[1][i] && tablero[1][i] == tablero[2][i] && tablero[0][i] != ' ') return true;
+	}
+	return false;
 }
 
-bool SumaFila(int n){
-	int suma;
-	for(int i = 0 ; i < 3 ;i++){
-		suma = suma + tablero[n][i];
-		if (tablero[n][i] == 0) {
-			posAmenazada.X = n;
-			posAmenazada.Y = i;
+bool RevisarDiagonales(char tablero[][3])
+{
+	if (tablero[0][0] == tablero[1][1] && tablero[1][1] == tablero[2][2] && tablero[0][0] != ' ') return true;
+
+	if (tablero[0][2] == tablero[1][1] && tablero[1][1] == tablero[2][0] && tablero[0][2] != ' ') return true;
+
+	return false;
+}
+
+
+bool HayVictoria(char tablero[3][3]) {
+	return (RevisarDiagonales(tablero) || RevisarColumnas(tablero) || RevisarFilas(tablero));
+}
+
+void Ganador(int Turno)
+{
+	if (Turno == Computadora)
+		printf("La COMPUTADORA ha ganado\n");
+	else
+		printf("El HUMANO ha ganado\n");
+}
+
+
+int minimax(char tablero[3][3], int profundidad, bool esBot)
+{
+	int puntuacion = 0;
+	int mejorPuntuacion = 0;
+	if (HayVictoria(tablero)) //CAMBIAR A GAME OVER(BOARD)
+	{
+		if (esBot == true)
+			return -1;
+		if (esBot == false)
+			return +1;
+	}
+	else
+	{
+		if (profundidad < 9)
+		{
+			if (esBot == true)
+			{
+				mejorPuntuacion = -999;
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						if (tablero[i][j] == ' ')
+						{
+							tablero[i][j] = simboloBot;
+							puntuacion = minimax(tablero, profundidad + 1, false);
+							tablero[i][j] = ' ';
+							if (puntuacion > mejorPuntuacion)
+							{
+								mejorPuntuacion = puntuacion;
+							}
+						}
+					}
+				}
+				return mejorPuntuacion;
+			}
+			else
+			{
+				mejorPuntuacion = 999;
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						if (tablero[i][j] == ' ')
+						{
+							tablero[i][j] = simboloOponente;
+							puntuacion = minimax(tablero, profundidad + 1, true);
+							tablero[i][j] = ' ';
+							if (puntuacion < mejorPuntuacion)
+							{
+								mejorPuntuacion = puntuacion;
+							}
+						}
+					}
+				}
+				return mejorPuntuacion;
+			}
+		}
+		else
+		{
+			return 0;
 		}
 	}
-	if (suma == 2){
-		return true;
-		BuscarPosicionAmenazadaFila(n);
-	}
-	else {
-		return false;
-	}
 }
-
-void BuscarPosicionAmenazadaFila(int n){
-	for (int i = 0; i < 3;i++) {
-		if (tablero[n][i] == 0) {
-			posAmenazada.X = n;
-			posAmenazada.Y = i;
-		}
-	}
-}
-
-// fila1Amenazada = SumaFila(1); 
-// for, 3 vulta, que  busque en la fila la posicion vacia
 
 int main()
 {
@@ -133,11 +199,13 @@ int main()
 		simboloOponente = 'O';
 	}
 	int posX, posY;
+	
+	_getch();
 	do {
 
 		TableroVisual();
 		if (botX) {
-			JugadaBot();
+			
 			botX = false;
 		}
 		else {
@@ -146,7 +214,7 @@ int main()
 			cout << "\nIngrese la Posicion en Y: ";
 			cin >> posY;
 			ColocarJugada(posX, posY, true);
-			JugadaBot();
+			
 		}
 	} while (jugadas != 9);
 }
