@@ -17,7 +17,6 @@ int jugadas = 0;
 char simboloOponente, simboloBot;
 int posXbot, posYbot;
 
-//#define DIMENSION 3;
 
 void GoToXY(int x, int y)
 {//La función coloca el cursor para imprimir en el lugar que queramos.
@@ -29,20 +28,16 @@ void GoToXY(int x, int y)
 	dwPos.Y = y;
 	SetConsoleCursorPosition(hCon, dwPos);
 }
-//
-//char ConvertirNumSimbolo(int num) {
-//	switch (num) {
-//	case 0:
-//		return ' ';
-//		break;
-//	case 1:
-//		return simboloOponente;
-//		break;
-//	case -1:
-//		return simboloBot;
-//		break;
-//	}
-//}
+
+bool validarEntrada(string entrada) {
+	for (int i = 0; i < entrada.length(); i++) {
+		if (!isdigit(entrada[i]))
+		{
+			return false;
+		}
+	}
+	return true;
+}
 
 void TableroVisual() 
 {
@@ -69,15 +64,8 @@ void TableroVisual()
 		}
 }
 
-//void ColocarJugada (int posX, int posY, bool jugadaUsuario){
-//	(jugadaUsuario) ? tablero[posX][posY] = simboloOponente : tablero[posX][posY] = -1;
-//	TableroVisual();
-//	jugadas++;
-//}
-
 void Borrar()
 {
-	// Initially the board is empty 
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -119,18 +107,24 @@ bool HayVictoria(char tablero[3][3]) {
 
 void Ganador(int Turno)
 {
-	if (Turno == bot)
-		printf("La COMPUTADORA ha ganado\n");
-	else
-		printf("El HUMANO ha ganado\n");
+	if (Turno == bot) {
+		GoToXY(0, 30);
+		cout << "El BOT ha ganado\n";
+		_getch();
+	}
+		
+	else {
+		GoToXY(0, 30);
+		cout << "El HUMANO ha ganado\n";
+		_getch();
+	}
 }
-
 
 int minimax(char tablero[3][3], int profundidad, bool esBot)
 {
 	int puntuacion = 0;
 	int mejorPuntuacion = 0;
-	if (HayVictoria(tablero)) //CAMBIAR A GAME OVER(BOARD)
+	if (HayVictoria(tablero)) 
 	{
 		if (esBot == true)
 			return -1;
@@ -218,26 +212,37 @@ void MejorMovimiento(char tablero[3][3], int jugada)
 	posYbot = y;
 }
 
+bool validarRango(int num, int cotInf, int cotSup) {
+	if (num >= cotInf && num <= cotSup) return true;
+	else return false;
+}
+
+void ImprimirError(string mensaje) {
+	GoToXY(20, 0);
+	cout << mensaje;
+	_getch();
+	system("cls");
+	TableroVisual();
+}
+
 void jugar(int turno)
 {
+	string posXS, posYS;
 	int posX, posY;
-	/*char tablero[3][3];*/
-	int jugadas = 0; /*x = 0, y = 0;*/
+	int jugadas = 0; 
+	bool salir = false;
+
 
 	TableroVisual();
 
 	while (HayVictoria(tablero) == false && jugadas != 9)
 	{
-		//int n;
 		if (turno == bot)
 		{
-			//n = MejorMovimiento(tablero, jugadas);
-			//x = n / 3;
-			//y = n % 3;
 			MejorMovimiento(tablero, jugadas);
 			tablero[posXbot][posYbot] = simboloBot;
-			GoToXY(20,20);
-			cout << "COMPUTER has put a " << simboloBot << "in cell [" << posXbot << "," << posYbot << "]";
+			GoToXY(15, 5); 
+			cout << "El bot colocó " << simboloBot << " en la posicion [" << posXbot << "," << posYbot << "]";
 			TableroVisual();
 			jugadas++;
 			turno = oponente;
@@ -245,38 +250,66 @@ void jugar(int turno)
 
 		else if (turno == oponente)
 		{
-			cout << "\n\nIngrese la Posicion en X: ";
-			cin >> posX;
-			cout << "\nIngrese la Posicion en Y: ";
-			cin >> posY;
+			do {
+				salir = false;
+				cout << "\n\nIngrese la Posicion en X: ";
+				cin >> posYS;
+				
+					if (validarEntrada(posYS))
+					{
+						posY = stoi(posYS);
+						if (validarRango(posY, 0, 2)) salir = true;
+						else ImprimirError("Fuera de rango");
+					}
+					else {
+						ImprimirError("ENTRADA INCORRECTA. Introduzca numeros enteros del 0 al 2");
+					}
+			} while (!salir);
+
+				salir = false;
+				do {
+					cout << "\n\nIngrese la Posicion en Y: ";
+					cin >> posXS;
+
+					if (validarEntrada(posXS) )
+					{
+						posX = stoi(posXS);
+						if (validarRango(posX, 0, 2)) salir = true;
+						else ImprimirError("Fuera de rango");
+					}
+					else {
+						ImprimirError("ENTRADA INCORRECTA. Introduzca numeros enteros del 0 al 2");
+					}
+				} while (!salir);
 			
-			/*n--;
-			x = n / 3;
-			y = n % 3;*/
+			
 			if (tablero[posX][posY] == ' ' && (posX < 3 && posX >= 0) && (posY < 3 && posY >= 0))
 			{
 				tablero[posX][posY] = simboloOponente;
-				GoToXY(50,50);
-				cout << "HUMAN has put a " << simboloOponente << "in cell [" << posX << "," << posY << "]";
+				GoToXY(15,5);
+				cout << "El jugador colocó " << simboloOponente << " en la posicion [" << posX << "," << posY << "]";
+			
 				TableroVisual();
 				jugadas++;
 				turno = bot;
 			}
 			else if (tablero[posX][posY] != ' ')
 			{
-				GoToXY(20,20);
-				cout << "Posicion Ocupada, seleccione otra en un lugar disponible";
+				ImprimirError("Posicion ocupada");
 			}
 			else
 			{
-				cout << "\n Posicion Invalida, fuera de rango \n";
+				ImprimirError("Posicion fuera de rango");
 			}
 		}
 	}
 
 	// Empate
-	if (HayVictoria(tablero) == false && jugadas == 9)
+	if (HayVictoria(tablero) == false && jugadas == 9) {
+		GoToXY(0, 15); //feliz año
 		cout << "DUROSSSSS EMPATE";
+		_getch();
+	}
 	else
 	{
 		// Declarar el ganador actual
@@ -290,8 +323,8 @@ void jugar(int turno)
 }
 
 int main()
-{
-	int opcionSimbolo;
+{	
+	string opcionS;
 	bool cerrar = false;
 	do{
 		system("cls");
@@ -299,32 +332,43 @@ int main()
 	cout << "1) X (Empieza)\n";
 	cout << "2) O (Es Segundo)\n";
 	cout << "3) Salir\n\n";
-	cout << "Opcion Elegida: ";
-	cin >> opcionSimbolo;
-
 	
-	Borrar();
-	switch (opcionSimbolo) {
-	case 1: 
-		simboloBot = 'O';
-		simboloOponente = 'X';
-		jugar(oponente);
+	cout << "Opcion Elegida: ";
+	cin >> opcionS;
+	if (validarEntrada(opcionS))
+	{
+		Borrar();
+		switch (stoi(opcionS)) {
+		case 1:
+			simboloBot = 'O';
+			simboloOponente = 'X';
+			jugar(oponente);
+			_getch();
+			break;
+		case 2:
+			botX = true;
+			simboloBot = 'X';
+			simboloOponente = 'O';
+			jugar(bot);
+			_getch();
+			break;
+		case 3:
+			cerrar = true;
+			GoToXY(0, 20);
+			cout << "Cerrando......";
+			break;
+		default:
+			cout << "Esa opcion no esta en el menu ";
+			_getch();
+			break;
+	}
+	}
+	else {
+		GoToXY(0, 20);
+		cout << "ENTRADA INCORRECTA. Introduzca numeros enteros del 0 al 2";
 		_getch();
-		break;
-	case 2:
-		botX = true;
-		simboloBot = 'X';
-		simboloOponente = 'O';
-		jugar(bot);
-		break;
-	case 3:
-		cerrar = true;
-		GoToXY(20, 20);
-		cout << "Cerrando......";
-		break;
-	default:
-		cout << "Esa opcion no esta en el menu ";
-		break;
+		cout << "                                                         ";
+		GoToXY(0, 6);
 	}
 	} while (!cerrar);
 		_getch();
