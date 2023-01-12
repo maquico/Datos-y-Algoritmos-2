@@ -1,6 +1,13 @@
-// TicTacToeConAlgoritmoEnConsola.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+/* ESTRUCTURAS DE DATOS Y ALGORITMOS II
+* ENUNCIADO: TIC TAC TOE CON BOT
+* ASUNTO: ESTE PROGRAMA JUEGA TIC TAC TOE CONTRA UN HUMANO
+AUTORES: ANGEL MORENO ID:1104666
+*        GLEIDY ESPINAL ID:1104225
+*        ALLEN SILVERIO ID:1104220
+*        CRISTIAN JIMÉNEZ ID:1106166
+*        WILLIAM FERREIRA ID:1104228
+* FECHA: 12/01/2022
+*/
 #include <iostream>
 #include <windows.h>
 #include <string>
@@ -127,13 +134,11 @@ void Ganador(int Turno)
 	if (Turno == bot) {
 		GoToXY(0, 9);
 		cout << "El BOT ha ganado\n";
-		_getch();
 	}
 		
 	else {
 		GoToXY(0, 9);
 		cout << "El HUMANO ha ganado\n";
-		_getch();
 	}
 }
 
@@ -143,14 +148,14 @@ int minimax(char tablero[3][3], int profundidad, bool esBot)
 	int mejorPuntuacion = 0;
 	if (HayVictoria(tablero)) 
 	{
-		if (esBot == true)
+		if (esBot == true) //gano el humano
 			return -1;
-		if (esBot == false)
+		if (esBot == false) //gano el bot
 			return +1;
 	}
 	else
 	{
-		if (profundidad < 9)
+		if (profundidad < 9) //maximo de jugadas futuras a revisar
 		{
 			if (esBot == true)                                    
 			{													
@@ -389,14 +394,10 @@ int main()
 			cout << "Esa opcion no esta en el menu ";
 			_getch();
 			break;
-	}
+		}
 	}
 	else {
-		GoToXY(0, 20);
-		cout << "ENTRADA INCORRECTA. Introduzca numeros enteros del 0 al 2";
-		_getch();
-		cout << "                                                         ";
-		GoToXY(0, 6);
+		ImprimirError("ENTRADA INCORRECTA. Introduzca numeros enteros del 0 al 2");
 	}
 	} while (!cerrar);
 		_getch();
